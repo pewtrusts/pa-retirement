@@ -1,0 +1,36 @@
+{
+    "county": {
+        "display": "County"
+    },
+    "liability": {
+        "short": "Taxpayer liability",
+        "display": "Cumulative additional taxpayer liability per household due to insufficient savings, 2015-2030",
+        "format": "$,.0f",
+        "isNumeric": true
+    },
+    "d_insuff": {
+        "short": "Vulnerable household increase",
+        "display": "Increase in age 65+ households with less than $75,000 in annual income, 2015 to 2030",
+        "format": ",.0%",
+        "isNumeric": true
+    },
+    "d_ratio": {
+        "short": "Elderly ratio increase",
+        "display": "Increase in the ratio of older to working-age households, 2015 to 2030",
+        "format": ",.0%",
+        "isNumeric": true
+    },
+    "shortfall": {
+        "short": "Average income shortfall",
+        "display": "Average annual income shortfall for those with annual income less than $75,000, 2030",
+        "format": "$,.0f",
+        "isNumeric": true,
+        "tableFormat": ",.0f"
+    },
+    "required": {
+        "short": "Additional savings required",
+        "display": "Additional annual household savings required for retirement adequacy, 2015-2030",
+        "format": "$,.0f",
+        "isNumeric": true
+    }
+}

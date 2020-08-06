@@ -1,0 +1,52 @@
+@import '@Project/css/variables.scss';
+
+.PATable {
+    width: 100%;
+    table-layout: fixed;
+    td, th {
+        border: none;
+    }
+    thead th {
+        vertical-align: bottom;
+        &:not(:first-child) {
+            width: 160px;
+        }
+    }
+    th {
+        background-color: transparent;
+        font-weight: bold;
+        text-align: left;
+        &.isNumeric {
+            text-align: right;
+        }
+    }
+    td {
+        outline: 1px solid magenta;
+        text-align: right;
+        padding-right: 4%;
+        position: relative;
+        > span {
+            display: flex;
+        }
+        &.percent > span {
+            justify-content: flex-end;
+            &::after {
+                content: '%';
+            }
+        }
+        &.currency > span {
+            justify-content: space-between;
+            &::before {
+                flex-grow: 1;
+                content: '$';
+                text-align: center;
+                //position: absolute;
+                //left: 0;
+            }
+        }
+    }
+    tr:nth-child(even){
+        background-color: $lightest_gray;
+    }
+
+}
