@@ -25,7 +25,7 @@ function displayShort(value){
 }
 function maybeCreateBarChart(d){
     if ( ['d_insuff','d_ratio'].indexOf(d.property) !== -1 ){
-        createBarChart.call(this, d);          
+        createBarChart.call(this.children[0], d);   // send the <td>'s <div> as the container       
     }
 }
 export default function init({data,columns,container}){
@@ -107,9 +107,10 @@ export default function init({data,columns,container}){
                 .attr('data-column', d => displayShort(d.property))
                 .classed(s.percent, d => metadata[d.property].format && metadata[d.property].format.includes('%'))
                 .classed(s.currency, d => metadata[d.property].format && metadata[d.property].format.includes('$'))
+                .classed(s.hasBarChart, d => ['d_insuff','d_ratio'].includes(d.property))
                 .html(d => {
                     console.log(d);
-                    return `<span><span>${tableFormat({value: d.value, property: d.property})}</span></span>`;
+                    return `<div><span><span>${tableFormat({value: d.value, property: d.property})}</span></span></div>`;
                 })
                 .each(maybeCreateBarChart);
 

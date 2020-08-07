@@ -2,7 +2,7 @@
 
 .PATable {
     width: 100%;
-    table-layout: fixed;
+   // table-layout: fixed;
     td, th {
         border: none;
     }
@@ -25,6 +25,17 @@
         text-align: right;
         padding-right: 4%;
         //position: relative;
+        &.hasBarChart {
+            padding-right: 0;
+            div {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                > span {
+                    margin-right: 1em;
+                }
+            }
+        }
     }
     tbody tr:not(:last-child) {
         th, td {
@@ -77,7 +88,7 @@
             > span {
                 display: flex;
             }
-            &.percent > span {
+            &.percent div > span {
                 justify-content: flex-end;
                 position: relative;
                 &::after {
@@ -86,7 +97,7 @@
                     left: 100%;
                 }
             }
-            &.currency > span {
+            &.currency div > span {
                 justify-content: space-between;
                 &::before {
                     flex-grow: 1;
