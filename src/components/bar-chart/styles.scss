@@ -1,0 +1,16 @@
+@import '@Project/css/variables.scss';
+
+.svg {
+    width: 50%;
+    rect {
+        fill: $pew_blue;
+    }
+}
+.axisLine {
+    stroke: $dark-gray;
+    stroke-width: 3px;
+    tr[data-key="pennsylvania"] & {
+        stroke: #fff;   
+        stroke-width: 2px;
+    }
+}

@@ -105,6 +105,7 @@ export default function init({data,columns,container}){
                 .append('td')
                 .attr('data-key', d => ( d.county + d.property + d.value).hashCode())
                 .attr('data-column', d => displayShort(d.property))
+                .attr('data-row', d => d.county)
                 .classed(s.percent, d => metadata[d.property].format && metadata[d.property].format.includes('%'))
                 .classed(s.currency, d => metadata[d.property].format && metadata[d.property].format.includes('$'))
                 .classed(s.hasBarChart, d => ['d_insuff','d_ratio'].includes(d.property))

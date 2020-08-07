@@ -2,45 +2,107 @@
 
 .PATable {
     width: 100%;
-   // table-layout: fixed;
-    td, th {
-        border: none;
+    table-layout: fixed;
+
+    @media screen and (max-width: 665px) {
+        font-size: 0.85rem;
     }
-    thead th {
-        vertical-align: bottom;
-        &:not(:first-child) {
-            //width: 14%;
+
+    @media screen and (max-width: 600px) {
+        font-size: 0.75rem;
+    }
+    @media screen and (max-width: 445px){
+        svg {
+            //display: none;
         }
     }
+
+    td,
+    th {
+        border: none;
+        font-size: inherit;
+    }
+
+    thead th {
+        vertical-align: bottom;
+        @media screen and (max-width: 445px){
+            text-overflow: ellipsis;
+              overflow: hidden;
+              white-space: nowrap;
+
+        }
+        &:first-child {
+            @media screen and (max-width: 874px) {
+                width: 139px;
+            }
+        }
+        @media screen and (max-width: 355px){
+            &[data-key="liability"], &[data-key="shortfall"], &[data-key="required"] {
+                width: 61px;
+            }
+        }
+    }
+
     th {
         background-color: transparent;
         font-weight: bold;
         text-align: left;
+
         &.isNumeric {
             text-align: right;
         }
+
+        &:first-child {
+            @media screen and (max-width: 565px) {
+                display: none;
+            }
+        }
     }
+
     td {
-       // outline: 1px solid magenta;
+        // outline: 1px solid magenta;
         text-align: right;
         padding-right: 4%;
+
         //position: relative;
         &.hasBarChart {
             padding-right: 0;
+
             div {
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
-                > span {
+
+                >span {
+                    flex-grow: 1;
                     margin-right: 1em;
                 }
             }
         }
+
+        @media screen and (max-width: 565px) {
+            padding-top: 15px;
+        }
+
+        &:first-of-type {
+            @media screen and (max-width: 565px) {
+                &::after {
+                    content: attr(data-row);
+                    position: absolute;
+                    left: 2px;
+                    top: 0;
+                    //z-index: 1;
+                }
+            }
+        }
     }
+
     tbody tr:not(:last-child) {
-        th, td {
+
+        th,
+        td {
             position: relative;
-          /*  &::before {
+            /*  &::before {
                 content: attr(data-column);
                 position: absolute;
                 display: block;
@@ -56,23 +118,32 @@
                 transform: rotate(-30deg);
             }*/
         }
+
         &:hover {
-            th, td {
+
+            th,
+            td {
                 &::before {
                     visibility: visible;
                 }
             }
         }
     }
+
     tbody tr:last-child {
-        th, td {
+
+        th,
+        td {
             position: sticky;
             bottom: 0;
             //transform:translateY(-100%);
         }
     }
+
     thead tr:first-child {
-        th, td {
+
+        th,
+        td {
             position: sticky;
             top: 100px;
             background-color: $dark_gray;
@@ -82,23 +153,29 @@
             //transform:translateY(-100%);
         }
     }
-    tbody tr:first-child, tbody tr:last-child {
 
-         td {
-            > span {
+    tbody tr:first-child,
+    tbody tr:last-child {
+
+        td {
+            >span {
                 display: flex;
             }
-            &.percent div > span {
+
+            &.percent div>span {
                 justify-content: flex-end;
                 position: relative;
+
                 &::after {
                     content: '%';
                     position: absolute;
                     left: 100%;
                 }
             }
-            &.currency div > span {
+
+            &.currency div>span {
                 justify-content: space-between;
+
                 &::before {
                     flex-grow: 1;
                     content: '$';
@@ -109,13 +186,17 @@
             }
         }
     }
-    tr:nth-child(even){
+
+    tr:nth-child(even) {
         background-color: $lightest_gray;
     }
+
     tr.averageRow {
         background-color: $dark_gray;
         color: #fff;
-        th, td {
+
+        th,
+        td {
             background-color: inherit;
         }
     }
