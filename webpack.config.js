@@ -123,6 +123,17 @@ const rules = [
             test: /\.js$|\.mjs$/,
             use: returnJSUse()
         },
+        {
+            test: /\.css$/,
+            use: [
+                /**
+                 * MiniCssExtractPlugin doesn't support HMR.
+                 * For developing, use 'style-loader' instead.
+                 * */
+                !isDev ? MiniCssExtractPlugin.loader : 'style-loader',
+                'css-loader',
+            ]
+        },
     
     {
         test: /\.scss$/,

@@ -1,1 +1,12 @@
 @import './variables.scss';
+
+/* tippy overrides */
+
+:global(.tippy-box) {
+    background-color: #fff;
+    color: $dark_gray;
+    border: 1px solid $dark_gray;
+}
+:global(.tippy-arrow){
+    color: #fff;
+}
