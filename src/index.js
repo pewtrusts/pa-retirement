@@ -3,6 +3,7 @@
 /* global PUBLICPATH */
 import Papa from 'papaparse';
 import dataFile from './data/county-data.csv'; // via file-loader ie path to asset
+import { initBarCharts } from './components/bar-chart/';
 import initTable from './components/table/';
 import './css/styles.scss';
 
@@ -10,6 +11,7 @@ const publicPath = window.IS_PRERENDERING ? '' : PUBLICPATH;
 const container = document.querySelector('#render-here');
 
 function init(results){
+    initBarCharts({data: results.data});
     initTable({data: results.data, columns: results.meta.fields, container});
 }
 Papa.parse(publicPath + dataFile, {
