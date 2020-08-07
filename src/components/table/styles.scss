@@ -156,6 +156,14 @@
                 top: 98px;
             }
             &[data-tippy-content]{
+                &[data-key="liability"]{
+                    @media screen and (max-width: 565px){
+                        padding-left: 20px;
+                        &::before {
+                            transform: translateX(3px);  
+                        }
+                    }
+                }
                 
                // text-indent: -19px;
                 &::before {
