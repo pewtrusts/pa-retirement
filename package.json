@@ -47,6 +47,7 @@
     "postcss-preset-env": "^6.7.0",
     "prerender-spa-plugin": "^3.4.0",
     "pretty": "^2.0.0",
+    "raw-loader": "^4.0.1",
     "sass": "^1.25.0",
     "sass-loader": "^8.0.2",
     "slugger": "^1.0.1",

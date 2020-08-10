@@ -3,7 +3,8 @@
 <% for (var css in htmlWebpackPlugin.files.css) { %>
     <link class="emitted-css" href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
 <% } %>
-	<div id="render-here"></div>
+	<div id="pa-map-container"></div>
+    <div id="render-here"></div>
 </div>
 <div class="clearfix"></div>
 <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
