@@ -15,7 +15,7 @@
         "isNumeric": true
     },
     "d_ratio": {
-        "short": "Elderly ratio increase",
+        "short": "Dependency ratio increase",
         "display": "Increase in the ratio of older to working-age households, 2015 to 2030",
         "format": ",.0%",
         "isNumeric": true
