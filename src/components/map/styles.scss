@@ -1,5 +1,8 @@
 @import '@Project/css/variables.scss';
 
+:global(.pa-button-container) {
+    margin-bottom: 25px;
+}
 :global(.pa-button-container button) {
     appearance: none;
     background: none;
@@ -9,6 +12,9 @@
     color: $dark_gray;
 
     padding: .3em 2em;
+    &:first-of-type {
+        padding-left: 0;
+    }
     &:not(:last-of-type){
         border-right: 1px solid $dark_gray; 
     }
@@ -18,4 +24,35 @@
 }
 :global(path.county){
     transition: fill 0.2s ease-in-out;
+}
+
+:global(#pa-map-container){
+    max-width: 800px;
+    h2 {
+        font-size: 1.5rem;
+        max-width: 650px;
+    }
+}
+
+.legend {
+    position: relative;
+    width: 175px;
+    height: 16px;
+    display: flex;
+    justify-content: stretch;
+    margin: 50px 0 50px 10px;
+    label {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        font-size: 0.85rem;
+        font-weight: 600;
+        &.max {
+            left: unset;
+            right: 0;
+        }
+    }
+}
+.legendDiv {
+    flex-grow: 1;
 }
