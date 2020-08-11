@@ -1,0 +1,21 @@
+@import '@Project/css/variables.scss';
+
+:global(.pa-button-container button) {
+    appearance: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    color: $dark_gray;
+
+    padding: .3em 2em;
+    &:not(:last-of-type){
+        border-right: 1px solid $dark_gray; 
+    }
+    &:hover, &:focus, &:global(.active) {
+        font-weight: bold;
+    }
+}
+:global(path.county){
+    transition: fill 0.2s ease-in-out;
+}

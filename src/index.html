@@ -3,7 +3,13 @@
 <% for (var css in htmlWebpackPlugin.files.css) { %>
     <link class="emitted-css" href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
 <% } %>
-	<div id="pa-map-container"></div>
+	<div id="pa-map-container">
+     <div class="pa-button-container js-pa-button-container">
+         <button class="active" value="liability">Taxpayer liability</button>
+         <button value="d_ratio">Dependency ratio</button>
+         <button value="required">Additional required savings</button>
+     </div>   
+    </div>
     <div id="render-here"></div>
 </div>
 <div class="clearfix"></div>

@@ -5,20 +5,36 @@ import StringHelpers from '@Submodule/UTILS';
 import metadata from '@Project/data/metadata.json';
 import slugger from 'slugger';
 import mapSVG from '!raw-loader!./map.html';
-//import s from './styles.scss';
+import s from './styles.scss';
 
 if ( module.hot ){
-  //  module.hot.accept('./styles.scss');
+    module.hot.accept('./styles.scss');
 }
 
-const fields  = ['liability', 'd_ratio', 'required'];
+const fields = ['liability', 'd_ratio', 'required'];
 const container = document.querySelector('#pa-map-container');
 const scale = d3.scaleLinear().range([0,1]);
 //var colors = ['#fff', '#229DC6','#153164'];
-var colors = ['#fff', '#296EC3','#153164'];
+var colors = ['#ebf4ff', '#296EC3','#153164'];
 const extents = {};
 
 export default function initMap({data}){
+
+    var buttons = document.querySelectorAll('.js-pa-button-container button');
+    var activeButton = buttons[0];
+
+    function clickHandler(){
+        counties.each(update.bind(undefined, this.value));
+        labels.each(updateLabels.bind(undefined, this.value));
+        activeButton.classList.remove('active');
+        this.classList.add('active');
+        activeButton = this;
+    }
+
+    buttons.forEach(btn => {
+        btn.addEventListener('click', clickHandler);
+    });
+
     // mutates extents
     fields.reduce(function(acc,cur){ 
         extents[cur] = d3.extent(data, d => d[cur]);
