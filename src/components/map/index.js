@@ -39,7 +39,7 @@ export default function initMap({data}){
     }
 
     var svg = svgContainer.select('svg');
-    var counties = svg.selectAll('path').data(d => d, function(_d){
+    var counties = svg.selectAll('path').data(d => d.filter(_d => _d.county !== 'Pennsylvania'), function(_d){
         return _d ? slugger(_d.county) : this.getAttribute('data-county');
     });
     // in all cases, dev, prerender, page load, the paths will already be part of the svg
@@ -49,7 +49,7 @@ export default function initMap({data}){
 
     var labels = d3.selectAll('div.g-Layer_1');
     console.log(labels);
-    labels.data(data, function(_d){
+    labels.data(data.filter(d => d.county !== 'Pennsylvania'), function(_d){
         console.log(_d);
         return _d ? slugger(_d.county) : slugger(this.getAttribute('data-key'));
     });
@@ -67,6 +67,7 @@ function update(field,d,i,array){
 }
 function updateLabels(field,d,i,array){
     var label = d3.select(array[i]);
+    console.log(label.node());
     label
-        .style('color', d => scale(d[field]) < 0.5 ? '#000' : '#fff');
+        .classed('on-light', d => scale(d[field]) < 0.25 || ['Philadelphia','Delaware'].includes(d.county));
 }
