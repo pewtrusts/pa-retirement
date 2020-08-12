@@ -6,6 +6,7 @@ import dataFile from './data/county-data.csv'; // via file-loader ie path to ass
 import { initBarCharts } from './components/bar-chart/';
 import initTable from './components/table/';
 import initMap from './components/map/';
+import initCountyData from './components/county-data/';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css'; // optional for styling
 import './css/styles.scss';
@@ -17,6 +18,7 @@ function init(results){
     initMap({data: results.data});
     initBarCharts({data: results.data});
     initTable({data: results.data, columns: results.meta.fields, container});
+    initCountyData(results.data);
     tippy('[data-tippy-content]', {
         offset: [0,0],
         trigger: 'mouseenter focus'

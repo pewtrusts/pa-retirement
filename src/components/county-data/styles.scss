@@ -1,0 +1,20 @@
+@import '@Project/css/variables.scss';
+
+.row {
+    display: flex;
+}
+.row-0 {
+    justify-content: space-around;
+    justify-content: space-evenly;
+}
+.row-1 {
+    justify-content: space-between;
+}
+.componentWrapper {
+    width: 175px;
+    height: 225px;
+    svg {
+        width: 100%;
+        max-width: 140px;
+    }
+}
