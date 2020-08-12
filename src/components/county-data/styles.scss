@@ -13,8 +13,17 @@
 .componentWrapper {
     width: 175px;
     height: 225px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     svg {
         width: 100%;
         max-width: 140px;
     }
+}
+.callout {
+    text-align: center;
+    color: $pew_blue;
+    font-weight: 900;
+    font-size: 2rem;
 }

@@ -46,9 +46,35 @@ export default function(data){
     }
     function returnComponents(d){
         var component = d3.select(this);
+        /* chart */
         component.call(initChart)
         component.call(updateChart, {field: d})
+
+        /* callout */
+        component.call(initCallout);
+        component.call(updateCallout, {data, field: d});
+
     }
     returnComponentWrappers().each(returnComponents);
     
+}
+
+function initCallout(component){
+    var callout = component.selectAll('div.callout')
+        .data([1]);
+
+        {
+            let entering = callout.enter()
+                .append('div')
+                .attr('class', `callout ${s.callout}`)
+                .text('xx');
+
+            callout = callout.merge(entering);
+        }
+}
+function updateCallout(component, {data,field,county = 'Allegheny'}){
+    var calloutValue = data.find(d => d.county == county)[field];
+    component.select('div.callout')
+        .datum(calloutValue)
+        .text(d => d3.format(metadata[field].format)(d));
 }
