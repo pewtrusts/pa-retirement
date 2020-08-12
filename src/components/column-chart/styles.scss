@@ -1,2 +1,12 @@
 @import '@Project/css/variables.scss';
 
+.rect-0 {
+    fill: $gray;
+}
+.rect-1 {
+    fill: $pew_blue;
+}
+.labels {
+    font-size: 10px;
+    font-weight: bold;
+}

@@ -4,11 +4,11 @@ import d3 from '@Project/d3-importer.js';
 import StringHelpers from '@Submodule/UTILS';
 import metadata from '@Project/data/metadata.json';
 import slugger from 'slugger';
-//import s from './styles.scss';
+import s from './styles.scss';
 
-/*if ( module.hot ){
+if ( module.hot ){
     module.hot.accept('./styles.scss');
-}*/
+}
 
 const viewBoxHeight = 77;
 const margin = {
@@ -54,7 +54,7 @@ export function initChart(component){
         }
         return svg;
     }
-    var group
+    
     var _svg = returnSVG();
     var rects = _svg.select('g').selectAll('rect')
         .data(d => d);
@@ -62,6 +62,7 @@ export function initChart(component){
     {
         let entering = rects.enter()
             .append('rect')
+            .attr('class', (d,i) => s[`rect-${i}`])
             .attr('width', 2 * (width / 7))
             .attr('height', height)
             .attr('x', (d,i) => (i + 1) * ( width / 7) + i  * ( width / 3.5) )
@@ -69,19 +70,40 @@ export function initChart(component){
 
         rects = rects.merge(entering);
     }
+
+    var labels = _svg.select('g').selectAll('g.labels')
+        .data(d => d);
+
+        {
+            let entering = labels.enter()
+                .append('g')
+                .attr('class', `labels ${s.labels}`)
+                    .append('text')
+                    .text('XX')
+                    .attr('text-anchor', 'middle')
+                    .attr('x', (d,i) => (2/7) * width + i * (3/7) * width)
+                    .attr('y',0)
+                    .attr('dy', '-0.5em');
+        }
 }
 export function updateChart(component, {field, county = 'Allegheny'}){
     yScale.domain(extents[field]);
+    var chartData = ['Pennsylvania', county].map(c => {
+        return {
+            county: c,
+            value: data.find(d => d.county == c)[field]
+        };
+    });
     var rects = component.selectAll('rect')
-        .data(['Pennsylvania', county].map(c => {
-            return {
-                county: c,
-                value: data.find(d => d.county == c)[field]
-            };
-        }));
+        .data(chartData);
 
     rects
         .attr('y', d => yScale(d.value))
         .attr('height', d => height - yScale(d.value));
+
+    var labels = component.selectAll('text')
+        .data(chartData)
+        .text(d => d3.format(metadata[field].format)(d.value))
+        .attr('y', d => height - (height - yScale(d.value)));
 }
 
