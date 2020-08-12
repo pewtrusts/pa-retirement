@@ -54,27 +54,46 @@ export default function(data){
         component.call(initCallout);
         component.call(updateCallout, {data, field: d});
 
+        /* title */
+        component.call(initTitle, d);
+
     }
     returnComponentWrappers().each(returnComponents);
     
 }
 
 function initCallout(component){
-    var callout = component.selectAll('div.callout')
+    var callout = component.selectAll('div.js-callout span')
         .data([1]);
 
         {
             let entering = callout.enter()
                 .append('div')
-                .attr('class', `callout ${s.callout}`)
-                .text('xx');
+                .attr('class', `js-callout ${s.callout}`)
+                    .append('span')
+                    .text('xx');
 
             callout = callout.merge(entering);
         }
 }
 function updateCallout(component, {data,field,county = 'Allegheny'}){
     var calloutValue = data.find(d => d.county == county)[field];
-    component.select('div.callout')
+    component.select('div.js-callout span')
         .datum(calloutValue)
-        .text(d => d3.format(metadata[field].format)(d));
+        .html(d => field !== 'required' ? 
+            d3.format(metadata[field].format)(d) :
+            `${d3.format(metadata[field].format)(d)} a year<br />` +
+            `or ${d3.format(metadata[field].format)(d / 12)} a month`
+        );
+}
+function initTitle(component,field){
+    var title = component.selectAll('div.js-title')
+        .data([field]);
+
+    {
+        let entering = title.enter()
+            .append('div')
+            .attr('class', `js-title ${s.title}`)
+            .text(d => metadata[d].display);
+    }
 }
