@@ -79,15 +79,49 @@ export function initChart(component){
                 .append('g')
                 .attr('class', `labels ${s.labels}`)
                     .append('text')
+                    .attr('class', (d,i) => s[`label-${i}`])
                     .text('XX')
                     .attr('text-anchor', 'middle')
                     .attr('x', (d,i) => (2/7) * width + i * (3/7) * width)
                     .attr('y',0)
                     .attr('dy', '-0.5em');
+
+            labels == labels.merge(entering);
         }
+
+    var axis = _svg.selectAll('line.axis')
+        .data([1]);
+
+        {
+            let entering = axis.enter()
+                .append('line')
+                .attr('class', `axis ${s.axis}`)
+                .attr('x1', (1/14) * width)
+                .attr('x2', width - (1/14) * width)
+                .attr('y1', height)
+                .attr('y2', height);
+
+            axis = axis.merge(entering);
+        }
+
+   /* var axisLabel = _svg.selectAll('text.axis-label')
+        .data([1]);
+
+        {
+            let entering = axisLabel.enter()
+                .append('text')
+                .attr('class',`axis-label ${s.axisLabel}`)
+                .text('0')
+                .attr('x', 0)
+                .attr('y', height)
+                .attr('dy', '0.3em');
+
+            axisLabel = axisLabel.merge(entering);
+        }*/
+
 }
 export function updateChart(component, {field, county = 'Allegheny'}){
-    yScale.domain(extents[field]);
+    yScale.domain([0,extents[field][1]]); // forcing zero min because column charts
     var chartData = ['Pennsylvania', county].map(c => {
         return {
             county: c,

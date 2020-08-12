@@ -10,3 +10,17 @@
     font-size: 10px;
     font-weight: bold;
 }
+.label-0 {
+    fill: $a11y;
+}
+.label-1 {
+    fill: $pew_blue;
+}
+.axis {
+    stroke: $gray;
+    stroke-width: 1px;
+}
+.axisLabel {
+    fill: $dark_gray;
+    font-size: 10px;
+}
