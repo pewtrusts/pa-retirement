@@ -5,19 +5,21 @@
     <% } %>
     <section id="pa-map-container">
         <div class="pa-button-container js-pa-button-container">
-            <button class="active" value="liability">Taxpayer liability</button>
+            <button class="active" value="liability">Taxpayer burden</button>
             <button value="d_ratio">Dependency ratio increase</button>
             <button value="required">Additional savings required</button>
         </div>
         <h2></h2>
     </section>
-    <section id="render-here"></section>
     <section id="county-data">
         <div id="county-data-selector">
         </div>
+        <p class="pa-chart-intro">From a 2015 baseline, <span class="js-county-name-inline">Adams</span> County can expect to see the following as a result of an aging population through 2030:</p>
         <div class="county-data--chart-wrapper">
         </div>
+        <div class="js-chart-summary pa-county-summary"></div>
     </section>
+    <section id="render-here"></section>
 </div>
 <div class="clearfix"></div>
 <% for (var chunk in htmlWebpackPlugin.files.chunks) { %>

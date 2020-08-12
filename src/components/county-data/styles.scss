@@ -41,3 +41,6 @@
     max-height: calc(100vh - 100px);
     overflow-y: scroll;
 }
+:global(.county-data--chart-wrapper) {
+    margin-top: 20px;
+}

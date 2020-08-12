@@ -9,6 +9,8 @@ import { initChart } from '@Project/components/column-chart';
 import { updateChart } from '@Project/components/column-chart';
 import s from './styles.scss';
 import UISvelte from '@Submodule/UI-svelte/';
+import CountySummary from '@Project/components/county-summary/index.svelte';
+import { countyStore } from '@Project/store.js';
 
 if ( module.hot ){
     module.hot.accept('./styles.scss');
@@ -17,11 +19,13 @@ if ( module.hot ){
 const collection = [['d_insuff','shortfall'],['d_ratio','liability','required']];
 var data;
 var componentWrappers;
+const inlineCounty = document.querySelector('.js-county-name-inline');
 
 export default function(_data){
     data = _data;
     initSelector(data);
     initColumnCharts(data);
+    initSummary(data);
     function returnRows(){
         var rows = d3.select('.county-data--chart-wrapper').selectAll('div.js-row')
             .data(collection);
@@ -114,6 +118,8 @@ function updateComponent({d,i,arr,county}){
 }
 function selectionHandler(){
     var county = this.dataset.value;
+    inlineCounty.textContent = county;
+    countyStore.set(county);
     componentWrappers.each(function(d,i,arr){
         updateComponent.call(this,{d,i,arr,county});
     })
@@ -132,4 +138,13 @@ function initSelector(data){
             itemOnClick: selectionHandler
         }
     });
+}
+function initSummary(){
+    new CountySummary({
+        target: document.querySelector('.js-chart-summary'),
+        props: {
+            data,
+            county: 'Adams'
+        }
+    })
 }
