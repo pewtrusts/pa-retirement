@@ -11,6 +11,7 @@ const isDev = mode === 'development';
 const isProd = process.env.NODE_ENV === 'production';
 const PrerenderSPAPlugin = require('prerender-spa-plugin');
 const pretty = require('pretty');
+const {sass} = require('svelte-preprocess-sass');
 
 const repoName = 'pa-retirement';
 const publicPath = isProd ? '/~/media/data-visualizations/interactives/2020/pa-retirement/' : '';
@@ -100,6 +101,29 @@ const plugins = [
         'BUILDTYPE': '"' + process.env.NODE_ENV + '"', 
     }),
 ];
+const svelteUse = [
+    {
+        loader: 'svelte-loader',
+        options: {
+            emitCss: true,
+            hotReload: true,
+            preprocess: {
+                style: sass({}, {name: 'scss'})
+            }
+
+        }
+    }
+];
+
+if (!isDev) {
+    svelteUse.unshift({
+        loader: 'babel-loader',
+        options: {
+            presets: ['@babel/preset-env']
+        }
+    });
+}
+
 function returnJSUse() {
     if ( isDev ){
         return [{
@@ -118,6 +142,10 @@ function returnJSUse() {
     }
 }
 const rules = [
+    {
+        test: /\.svelte$/,
+        use: svelteUse
+    },
 
     {
             test: /\.js$|\.mjs$/,
@@ -248,9 +276,12 @@ module.exports = env => {
         plugins,
         resolve: {
             alias: {
+                svelte: path.resolve('node_modules', 'svelte'),
                 "@Submodule": path.resolve('submodules'),
                 "@Project": path.resolve('src')
-            }
+            },
+            extensions: ['.mjs', '.js', '.svelte', '.html'],
+            mainFields: ['svelte', 'browser', 'module', 'main']
         },
     }
 };

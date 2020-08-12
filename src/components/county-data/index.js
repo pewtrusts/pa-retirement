@@ -8,14 +8,19 @@ import initColumnCharts from '@Project/components/column-chart';
 import { initChart } from '@Project/components/column-chart';
 import { updateChart } from '@Project/components/column-chart';
 import s from './styles.scss';
+import UISvelte from '@Submodule/UI-svelte/';
 
 if ( module.hot ){
     module.hot.accept('./styles.scss');
 }
 
 const collection = [['d_insuff','shortfall'],['d_ratio','liability','required']];
+var data;
+var componentWrappers;
 
-export default function(data){
+export default function(_data){
+    data = _data;
+    initSelector(data);
     initColumnCharts(data);
     function returnRows(){
         var rows = d3.select('.county-data--chart-wrapper').selectAll('div.js-row')
@@ -31,18 +36,18 @@ export default function(data){
         return rows;
     }
     function returnComponentWrappers(){
-        var componentWrappers = returnRows().selectAll('div.js-county-data-component-wrapper')
+        var _componentWrappers = returnRows().selectAll('div.js-county-data-component-wrapper')
             .data( d => d);
 
         {
-            let entering = componentWrappers.enter()
+            let entering = _componentWrappers.enter()
                 .append('div')
                 .attr('class',`js-county-data-component-wrapper ${s.componentWrapper}`);
 
-            componentWrappers = componentWrappers.merge(entering);
+            _componentWrappers = _componentWrappers.merge(entering);
         }
 
-        return componentWrappers;
+        return _componentWrappers;
     }
     function returnComponents(d){
         var component = d3.select(this);
@@ -58,7 +63,8 @@ export default function(data){
         component.call(initTitle, d);
 
     }
-    returnComponentWrappers().each(returnComponents);
+    componentWrappers = returnComponentWrappers();
+    componentWrappers.each(returnComponents);
     
 }
 
@@ -76,7 +82,7 @@ function initCallout(component){
             callout = callout.merge(entering);
         }
 }
-function updateCallout(component, {data,field,county = 'Allegheny'}){
+function updateCallout(component, {data,field,county = 'Adams'}){
     var calloutValue = data.find(d => d.county == county)[field];
     component.select('div.js-callout span')
         .datum(calloutValue)
@@ -96,4 +102,34 @@ function initTitle(component,field){
             .attr('class', `js-title ${s.title}`)
             .text(d => metadata[d].display);
     }
+}
+function updateComponent({d,i,arr,county}){
+    var component = d3.select(this);
+    /* chart */
+    component.call(updateChart, {field: d, county})
+
+    /* callout */
+   component.call(updateCallout, {data, field: d, county});
+
+}
+function selectionHandler(){
+    var county = this.dataset.value;
+    componentWrappers.each(function(d,i,arr){
+        updateComponent.call(this,{d,i,arr,county});
+    })
+}
+function initSelector(data){
+    var dropdown = new UISvelte.dropdown({
+        target: document.querySelector('#county-data-selector'),
+        props: {
+            label: 'Please select a county:',
+            options: data.filter(d => d.county !== 'Pennsylvania').map(d => {
+                return {
+                    value: d.county,
+                    display: d.county
+                };
+            }),
+            itemOnClick: selectionHandler
+        }
+    });
 }

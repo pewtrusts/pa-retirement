@@ -1,6 +1,7 @@
 import { extent } from 'd3-array';
 //import { axisBottom, axisLeft } from 'd3-axis';
 //import { entries, nest}         from 'd3-collection';
+import { transition } from      'd3-transition';
 import { format, formatLocale } from 'd3-format';
 import { interpolateRgb, interpolateRgbBasis, piecewise }       from 'd3-interpolate';
 //import { path }                 from 'd3-path';
@@ -19,4 +20,5 @@ export default {
     select,
     selectAll,
     tip,
+    transition,
 };

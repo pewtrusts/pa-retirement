@@ -62,7 +62,7 @@ export function initChart(component){
     {
         let entering = rects.enter()
             .append('rect')
-            .attr('class', (d,i) => s[`rect-${i}`])
+            .attr('class', (d,i) => `${s.rect} ${s['rect-' + i ]}`)
             .attr('width', 2 * (width / 7))
             .attr('height', height)
             .attr('x', (d,i) => (i + 1) * ( width / 7) + i  * ( width / 3.5) )
@@ -99,7 +99,8 @@ export function initChart(component){
                 .attr('x1', (1/14) * width)
                 .attr('x2', width - (1/14) * width)
                 .attr('y1', height)
-                .attr('y2', height);
+                .attr('y2', height)
+                .attr('transform', 'translate(0 0)');
 
             axis = axis.merge(entering);
         }
@@ -120,7 +121,7 @@ export function initChart(component){
         }*/
 
 }
-export function updateChart(component, {field, county = 'Allegheny'}){
+export function updateChart(component, {field, county = 'Adams'}){
     yScale.domain([0,extents[field][1]]); // forcing zero min because column charts
     var chartData = ['Pennsylvania', county].map(c => {
         return {
@@ -132,12 +133,14 @@ export function updateChart(component, {field, county = 'Allegheny'}){
         .data(chartData);
 
     rects
+        //.transition().duration(500)
         .attr('y', d => yScale(d.value))
         .attr('height', d => height - yScale(d.value));
 
     var labels = component.selectAll('text')
         .data(chartData)
         .text(d => d3.format(metadata[field].format)(d.value))
-        .attr('y', d => height - (height - yScale(d.value)));
+        //.transition().duration(500)
+        .attr('transform', d => `translate(0 ${height - (height - yScale(d.value))})`);
 }
 

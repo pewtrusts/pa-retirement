@@ -1,3 +1,6 @@
 [submodule "submodules/UTILS"]
 	path = submodules/UTILS
 	url = git@github.com:pewtrusts/UTILS
+[submodule "submodules/UI-svelte"]
+	path = submodules/UI-svelte
+	url = git@github.com:pewtrusts/UI-svelte.git

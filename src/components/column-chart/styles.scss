@@ -1,5 +1,9 @@
 @import '@Project/css/variables.scss';
 
+.rect {
+    transition: height 0.5s ease-in-out, y 0.5s ease-in-out;
+    transform: translateZ(0);
+}
 .rect-0 {
     fill: $gray;
 }
@@ -9,6 +13,9 @@
 .labels {
     font-size: 10px;
     font-weight: bold;
+    text {
+        transition: transform 0.5s ease-in-out;
+    }
 }
 .label-0 {
     fill: $a11y;
