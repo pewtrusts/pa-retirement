@@ -12,7 +12,7 @@ if ( module.hot ){
 
 const viewBoxHeight = 77;
 const margin = {
-    top: 0,
+    top: 13,
     right: 1,
     bottom: 0,
     left: 1
@@ -98,8 +98,8 @@ export function initChart(component){
                 .attr('class', `axis ${s.axis}`)
                 .attr('x1', (1/14) * width)
                 .attr('x2', width - (1/14) * width)
-                .attr('y1', height)
-                .attr('y2', height)
+                .attr('y1', height + margin.top)
+                .attr('y2', height + margin.top)
                 .attr('transform', 'translate(0 0)');
 
             axis = axis.merge(entering);
