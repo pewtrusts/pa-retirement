@@ -73,7 +73,7 @@ export default function _createBarChart(d){
     var rect = svg.select('g')
         .selectAll('rect')
         .data(d => {
-            console.log(d);
+            
             return [d];
         }, _d => _d ? _d.value : this.getAttribute('data-value'));
 

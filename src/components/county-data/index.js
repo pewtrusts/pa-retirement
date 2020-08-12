@@ -1,5 +1,6 @@
 /* eslint no-unused-vars: warn */
 /* eslint no-undef: warn */
+/* global BUILDTYPE */
 import d3 from '@Project/d3-importer.js';
 import StringHelpers from '@Submodule/UTILS';
 import metadata from '@Project/data/metadata.json';
@@ -138,7 +139,8 @@ function initSelector(data){
                 };
             }),
             itemOnClick: selectionHandler
-        }
+        },
+        hydrate: !( BUILDTYPE == 'development' || window.IS_PRERENDERING )
     });
 }
 function initSummary(){
@@ -147,6 +149,7 @@ function initSummary(){
         props: {
             data,
             county: 'Adams'
-        }
+        },
+        hydrate: !( BUILDTYPE == 'development' || window.IS_PRERENDERING )
     })
 }

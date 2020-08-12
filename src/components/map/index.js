@@ -81,9 +81,9 @@ export default function initMap({data}){
     counties.each(update);
 
     var labels = d3.selectAll('div.g-Layer_1');
-    console.log(labels);
+    
     labels.data(data.filter(d => d.county !== 'Pennsylvania'), function(_d){
-        console.log(_d);
+        
         return _d ? slugger(_d.county) : slugger(this.getAttribute('data-key'));
     });
 
@@ -154,7 +154,7 @@ function update(d,i,array){
 }
 function updateLabels(d,i,array){
     var label = d3.select(array[i]);
-    console.log(label.node());
+    
     label
         .classed('on-light', d => scale(d[selectedField]) < 0.25 || ['Philadelphia','Delaware'].includes(d.county));
 }

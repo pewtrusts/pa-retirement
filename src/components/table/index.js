@@ -30,7 +30,7 @@ function maybeCreateBarChart(d){
 }
 export default function init({data,columns,container}){
     data.sort(function(a,b){
-        console.log(a.county,b.county);
+        
         return a.county == 'Pennsylvania' ? 1 : b.county == 'Pennsylvania' ? -1 : 0;
     });
     var table = d3.select(container)
@@ -113,7 +113,7 @@ export default function init({data,columns,container}){
                 .classed(s.currency, d => metadata[d.property].format && metadata[d.property].format.includes('$'))
                 .classed(s.hasBarChart, d => ['d_insuff','d_ratio'].includes(d.property))
                 .html(d => {
-                    console.log(d);
+                    
                     return `<div><span><span>${tableFormat({value: d.value, property: d.property})}</span></span></div>`;
                 })
                 .each(maybeCreateBarChart);
