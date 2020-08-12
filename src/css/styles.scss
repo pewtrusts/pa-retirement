@@ -21,3 +21,29 @@
 :global(.pa-county-summary){
     max-width: 650px;
 }
+:global(#county-data){
+    padding-bottom: 30px;
+    border-bottom: 1px solid $light_gray;
+}
+:global(.chart-legend){
+    div {
+        display: inline-block;
+        padding: 0 30px 0 15px;
+        position: relative;
+        font-size: 0.75rem;
+        line-height: 1;
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 2px;
+            width: 7px;
+            height: 7px;
+            background-color: $gray;
+        }
+    }
+}
+:global(.chart-legend div.legend-item--selected)::before {
+    background-color: $pew_blue;
+}

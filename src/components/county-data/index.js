@@ -20,6 +20,7 @@ const collection = [['d_insuff','shortfall'],['d_ratio','liability','required']]
 var data;
 var componentWrappers;
 const inlineCounty = document.querySelector('.js-county-name-inline');
+const legendCounty = document.querySelector('.js-county-legend-inline');
 
 export default function(_data){
     data = _data;
@@ -119,6 +120,7 @@ function updateComponent({d,i,arr,county}){
 function selectionHandler(){
     var county = this.dataset.value;
     inlineCounty.textContent = county;
+    legendCounty.textContent = county;
     countyStore.set(county);
     componentWrappers.each(function(d,i,arr){
         updateComponent.call(this,{d,i,arr,county});
