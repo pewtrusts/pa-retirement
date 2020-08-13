@@ -24,7 +24,7 @@ const tip = d3.tip()
     .attr('class', `${s['d3-tip']} ${s.n}`)
     .offset(function(d,i,arr) {
         var labelR = container.querySelector(`div[data-key="${d.county}"]`).getBoundingClientRect();
-          return [labelR.y - this.getBoundingClientRect().y - 6, 0]
+          return [labelR.y - this.getBoundingClientRect().y - 12, 0]
         })
     /*.html((d,i,arr) => `<section>
             <h1 class="${s.tooltipHead}">${d.county}</h1>
