@@ -50,7 +50,9 @@ export default function init({data,columns,container}){
 
     var headerRow = table.select('thead tr')
         .selectAll('th')
-        .data(columns, d => d ? d : this.getAttribute('data-key'));
+        .data(columns, function(d){
+          return d ? d : this.getAttribute('data-key');  
+        });
 
     {
         let entering = headerRow.enter()
@@ -69,7 +71,9 @@ export default function init({data,columns,container}){
         .selectAll('tr')
         .data(d => {
             return d;
-        }, _d => _d ? slugger(_d.county) : this.getAttribute('data-key'));
+        }, function(_d){
+          return _d ? slugger(_d.county) : this.getAttribute('data-key');  
+        });
 
     {
         let entering = rows.enter()
@@ -81,7 +85,9 @@ export default function init({data,columns,container}){
         rows.exit().remove();
     }
     var rowHeads = rows.selectAll('th')
-        .data(d => [d.county], _d => _d ? `row-head-${slugger(_d)}` : this.getAttribute('data-key') );
+        .data(d => [d.county], function(_d){
+            return _d ? `row-head-${slugger(_d)}` : this.getAttribute('data-key');
+        });
 
     {
         let entering = rowHeads.enter()
@@ -100,7 +106,9 @@ export default function init({data,columns,container}){
                 property: key,
                 value: d[key]
             };
-        }), _d => _d ? ( _d.county + _d.property + _d.value).hashCode() : this.getAttribute('data-key') );
+        }), function(_d){
+            return _d ? ( _d.county + _d.property + _d.value).hashCode() : this.getAttribute('data-key');
+        });
 
         {
             let entering = dataCells.enter()

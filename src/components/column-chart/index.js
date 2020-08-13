@@ -33,7 +33,7 @@ export default function(_data){
 }
 export function initChart(component){
     function returnSVG(){
-        var svg = component.selectAll('svg g')
+        var svg = component.selectAll('svg g.body')
             .data([['Pennsylvania', undefined]]);
 
         {
@@ -44,10 +44,10 @@ export function initChart(component){
                 .attr('focusable', false)
                 .attr('xmlns', 'http://www.w3.org/2000/svg')
                 .attr('version', '1.1')
-                .attr('role', 'img');
-
-            entering.append('g')
-                .attr('transform', `translate(${margin.left},${margin.top})`);
+                .attr('role', 'img')
+                    .append('g')
+                    .attr('class','body')
+                    .attr('transform', `translate(${margin.left},${margin.top})`);
 
 
             svg = svg.merge(entering);
@@ -56,13 +56,13 @@ export function initChart(component){
     }
     
     var _svg = returnSVG();
-    var rects = _svg.select('g').selectAll('rect')
+    var rects = _svg.selectAll('rect.column')
         .data(d => d);
 
     {
         let entering = rects.enter()
             .append('rect')
-            .attr('class', (d,i) => `${s.rect} ${s['rect-' + i ]}`)
+            .attr('class', (d,i) => `column ${s.rect} ${s['rect-' + i ]}`)
             .attr('width', 2 * (width / 7))
             .attr('height', height)
             .attr('x', (d,i) => (i + 1) * ( width / 7) + i  * ( width / 3.5) )
@@ -71,13 +71,15 @@ export function initChart(component){
         rects = rects.merge(entering);
     }
 
-    var labels = _svg.select('g').selectAll('g.labels')
+    var labels = _svg.selectAll('g.labels')
         .data(d => d);
 
         {
             let entering = labels.enter()
                 .append('g')
-                .attr('class', `labels ${s.labels}`)
+                .attr('class', `labels ${s.labels}`);
+
+                entering
                     .append('text')
                     .attr('class', (d,i) => s[`label-${i}`])
                     .text('XX')
@@ -98,8 +100,8 @@ export function initChart(component){
                 .attr('class', `axis ${s.axis}`)
                 .attr('x1', (1/14) * width)
                 .attr('x2', width - (1/14) * width)
-                .attr('y1', height + margin.top)
-                .attr('y2', height + margin.top)
+                .attr('y1', height )
+                .attr('y2', height )
                 .attr('transform', 'translate(0 0)');
 
             axis = axis.merge(entering);

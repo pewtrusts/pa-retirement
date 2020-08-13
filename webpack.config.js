@@ -107,6 +107,7 @@ const svelteUse = [
         options: {
             emitCss: true,
             hotReload: true,
+            hydratable: true, // here must be true for preprocessing of component to work
             preprocess: {
                 style: sass({}, {name: 'scss'})
             }
