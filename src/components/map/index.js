@@ -22,11 +22,15 @@ const extents = {};
 const sectionHead = document.querySelector('#pa-map-container h2');
 const tip = d3.tip()
     .attr('class', `${s['d3-tip']} ${s.n}`)
-    //.offset([-8, 0])
-    .html((d,i,arr) => `<section>
+    .offset(function(d,i,arr) {
+        var labelR = container.querySelector(`div[data-key="${d.county}"]`).getBoundingClientRect();
+          return [labelR.y - this.getBoundingClientRect().y - 6, 0]
+        })
+    /*.html((d,i,arr) => `<section>
             <h1 class="${s.tooltipHead}">${d.county}</h1>
             <p>${metadata[selectedField].short}: <span>${d3.format(metadata[selectedField].format)(d[selectedField])}</span></p>
-        <section>`);
+        <section>`);*/
+    .html(d => `<p>${d3.format(metadata[selectedField].format)(d[selectedField])}</p>`);
 
 export default function initMap({data}){
 
