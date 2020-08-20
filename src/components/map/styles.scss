@@ -63,13 +63,15 @@
     margin: 50px 0 0 10px;
     label {
         position: absolute;
-        bottom: 100%;
+        bottom: 140%;
         left: 0;
         font-size: 0.85rem;
         font-weight: 600;
+        transform: translateX(-50%);
         &.max {
             left: unset;
             right: 0;
+            transform: translateX(50%);
         }
     }
 }
