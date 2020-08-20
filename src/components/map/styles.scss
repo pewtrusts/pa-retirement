@@ -3,6 +3,9 @@
 
 :global(.pa-button-container) {
     margin-bottom: 25px;
+    display: flex;
+    height: 40px;
+    max-width: 650px;
 }
 :global(.g-pstyle0){
     pointer-events: none;
@@ -14,16 +17,23 @@
     padding: 0;
     margin: 0;
     color: $dark_gray;
-
-    padding: .3em 2em;
-    &:first-of-type {
-        padding-left: 0;
+    &:hover, &:focus, &:global(.active) {
+        font-weight: bold;
+    }
+}
+:global(.pa-button-container div) {
+    //display: inline-block;
+    //padding: .3em 2em;
+    width: 33%;
+    display: flex;
+    justify-content: center;
+    width: 250px;
+    &:first-child {
+        width: 150px;
+        justify-content: flex-start;
     }
     &:not(:last-of-type){
         border-right: 1px solid $dark_gray; 
-    }
-    &:hover, &:focus, &:global(.active) {
-        font-weight: bold;
     }
 }
 :global(path.county){
