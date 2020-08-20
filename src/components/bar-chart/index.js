@@ -16,9 +16,9 @@ var max;
 var fullData;
 
 const margin = {
-    top: 3.125,
+    top: 6.25,
     right: 0,
-    bottom: 3.125,
+    bottom: 6.25,
     left: 0
 };
 const viewBoxHeight = 25;
@@ -48,7 +48,6 @@ export default function _createBarChart(d){
         let entering = svg.enter()
             .append('svg')
             .attr('class', s.svg)
-            .attr('height', viewBoxHeight)
             .attr('preserveAspectRatio', 'none')
             .attr('viewBox', '0 0 100 ' + viewBoxHeight)
             .attr('focusable', false)
@@ -64,8 +63,8 @@ export default function _createBarChart(d){
             .attr('class', s.axisLine)
             .attr('x1',0)
             .attr('x2',0)
-            .attr('y1',0)
-            .attr('y2', viewBoxHeight)
+            .attr('y1',margin.top / 2)
+            .attr('y2', viewBoxHeight - margin.bottom / 2)
             .attr('vector-effect','non-scaling-stroke');
 
 
@@ -100,8 +99,8 @@ export default function _createBarChart(d){
                 .attr('class',`statewide ${s.statewide}`)
                 .attr('x1', _d => yScale(_d[d.property]))
                 .attr('x2', _d => yScale(_d[d.property]))
-                .attr('y1', 0)
-                .attr('y2', height);
+                .attr('y1', 0 - margin.top)
+                .attr('y2', height + margin.bottom);
 
         }
 
