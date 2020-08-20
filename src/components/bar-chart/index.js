@@ -13,6 +13,7 @@ if ( module.hot ){
 const maxes = {};
 const haveBarcharts = ['d_insuff','d_ratio'];
 var max;
+var fullData;
 
 const margin = {
     top: 3.125,
@@ -28,6 +29,7 @@ const yScale = d3.scaleLinear().range([0, width]);
 // initBarCharts is called by index.js first so that when _createBarChart is called,
 // it has closure over the populated maxes object
 export function initBarCharts({data}){
+    fullData = data;
     haveBarcharts.reduce(function(acc,cur){ // mutates maxes
         acc[cur] = Math.max(...data.map(d => d[cur]));
         return acc;
@@ -88,6 +90,19 @@ export default function _createBarChart(d){
         rect = rect.merge(entering)
         rect.exit().remove();
     }
+    var statewide = svg.select('g')
+        .selectAll('line.statewide')
+        .data([fullData.find(_d => _d.county == 'Pennsylvania')]);
 
+        {
+            let entering = statewide.enter()
+                .append('line')
+                .attr('class',`statewide ${s.statewide}`)
+                .attr('x1', _d => yScale(_d[d.property]))
+                .attr('x2', _d => yScale(_d[d.property]))
+                .attr('y1', 0)
+                .attr('y2', height);
+
+        }
 
 }
