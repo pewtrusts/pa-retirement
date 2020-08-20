@@ -20,6 +20,9 @@
     &:hover, &:focus, &:global(.active) {
         font-weight: bold;
     }
+    &:focus {
+        outline: 1px dotted #000;
+    }
 }
 :global(.pa-button-container div) {
     //display: inline-block;
@@ -27,7 +30,7 @@
     width: 33%;
     display: flex;
     justify-content: center;
-    width: 250px;
+    width: 250px;                               
     &:first-child {
         width: 150px;
         justify-content: flex-start;
