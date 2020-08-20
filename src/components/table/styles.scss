@@ -39,6 +39,9 @@
                 width: 139px;
             }
         }
+        &[data-key="d_insuff"]{
+            width: 18%;
+        }
         @media screen and (max-width: 355px){
             &[data-key="liability"], &[data-key="shortfall"], &[data-key="required"] {
                 width: 61px;
