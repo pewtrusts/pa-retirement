@@ -30,7 +30,7 @@ const tip = d3.tip()
             <h1 class="${s.tooltipHead}">${d.county}</h1>
             <p>${metadata[selectedField].short}: <span>${d3.format(metadata[selectedField].format)(d[selectedField])}</span></p>
         <section>`);*/
-    .html(d => `<p>${d3.format(metadata[selectedField].format)(d[selectedField])}</p>`);
+    .html(d => `<p>${d.county}<br /><span>${d3.format(metadata[selectedField].format)(d[selectedField])}</span></p>`);
 
 export default function initMap({data}){
 
@@ -71,17 +71,15 @@ export default function initMap({data}){
         svgContainer = svgContainer.merge(entering);
     }
 
-    var svg = svgContainer.select('svg');
-    svg.call(tip)
+    var svg = svgContainer.select('svg.background');
+    
 
     var counties = svg.selectAll('path').data(d => d.filter(_d => _d.county !== 'Pennsylvania'), function(_d){
         return _d ? slugger(_d.county) : this.getAttribute('data-county');
     });
     // in all cases, dev, prerender, page load, the paths will already be part of the svg
     //counties
-    counties
-        .on('mouseenter', tip.show)
-        .on('mouseleave', tip.hide);
+    
     counties.each(update);
 
     var labels = d3.selectAll('div.g-Layer_1');
@@ -96,6 +94,15 @@ export default function initMap({data}){
     legendLabels = initLegend({container: svgContainer});
     updateLegend({labels: legendLabels});
     updateHeader();
+
+    var topSVG = svgContainer.select('svg:not(.background)');
+    topSVG.call(tip);
+    var topCounties = topSVG.selectAll('path').data(d => d.filter(_d => _d.county !== 'Pennsylvania'), function(_d){
+        return _d ? slugger(_d.county) : this.getAttribute('data-county');
+    });
+    topCounties
+        .on('mouseenter', tip.show)
+        .on('mouseleave', tip.hide);
 }
 function returnArray(j){
     var arr = [];
