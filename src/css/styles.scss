@@ -21,7 +21,7 @@
 :global(.pa-county-summary){
     max-width: 650px;
 }
-:global(#county-data){
+:global(#county-data), :global(#pa-map-container){
     padding-bottom: 30px;
     border-bottom: 1px solid $light_gray;
 }

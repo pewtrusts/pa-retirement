@@ -20,6 +20,7 @@ var colors = ['#ebf4ff', '#296EC3','#153164'];
 var legendLabels;
 const extents = {};
 const sectionHead = document.querySelector('#pa-map-container h2');
+const sectionHeadText = document.querySelector('#pa-map-container h2 span');
 const tip = d3.tip()
     .attr('class', `${s['d3-tip']} ${s.n}`)
     .offset(function(d,i,arr) {
@@ -91,8 +92,6 @@ export default function initMap({data}){
 
     labels.each(updateLabels);
 
-    legendLabels = initLegend({container: svgContainer});
-    updateLegend({labels: legendLabels});
     updateHeader();
 
     var topSVG = svgContainer.select('svg:not(.background)');
@@ -103,6 +102,9 @@ export default function initMap({data}){
     topCounties
         .on('mouseenter', tip.show)
         .on('mouseleave', tip.hide);
+    
+    legendLabels = initLegend({container: svgContainer});
+    updateLegend({labels: legendLabels});
 }
 function returnArray(j){
     var arr = [];
@@ -111,8 +113,8 @@ function returnArray(j){
     }
     return arr;
 }
-function initLegend({container}){
-    var legend = container.selectAll(`div.${s.legend}`)
+function initLegend(){
+    var legend = d3.select(sectionHead).selectAll(`div.${s.legend}`)
         .data([100]);
 
     {
@@ -145,7 +147,6 @@ function initLegend({container}){
 
         legendValues = legendValues.merge(entering);
     }
-
     return legendValues;
 
 }
@@ -170,5 +171,5 @@ function updateLabels(d,i,array){
         .classed('on-light', d => scale(d[selectedField]) < 0.25 || ['Philadelphia','Delaware'].includes(d.county));
 }
 function updateHeader(){
-    sectionHead.textContent = metadata[selectedField].display;
+    sectionHeadText.textContent = metadata[selectedField].display;
 }
