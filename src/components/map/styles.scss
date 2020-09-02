@@ -6,6 +6,19 @@
     display: flex;
     height: 40px;
     max-width: 650px;
+    @media screen and (max-width: 435px) {
+        flex-direction: column;
+        margin-bottom: 35px;
+    }
+}
+:global(#pa-field-selector){
+    display: none;
+    font-weight: 900;
+    margin-bottom: 0.2em;
+    @media screen and (max-width: 435px) {
+        display: block;
+    }
+
 }
 :global(.g-pstyle0){
     pointer-events: none;
@@ -27,16 +40,28 @@
 :global(.pa-button-container div) {
     //display: inline-block;
     padding: 0 0.8em;
-    width: 33%;
     display: flex;
     justify-content: center;
-    width: 250px;                               
+    width: 250px;
+    @media screen and (max-width: 435px) {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 0;
+        margin-bottom: 0.2em;
+    }
     &:first-child {
         width: 150px;
         justify-content: flex-start;
         padding-left: 0;
+        @media screen and (max-width: 435px) {
+            width: 100%;
+            padding: 0;
+        }                               
     }
     &:not(:last-of-type){
+        @media screen and (max-width: 435px) {
+            border-right-width: 0;
+        }
         border-right: 1px solid $dark_gray; 
     }
 }
