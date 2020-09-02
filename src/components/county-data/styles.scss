@@ -2,6 +2,7 @@
 
 .row {
     display: flex;
+    flex-wrap: wrap;
 }
 .row-0 {
     justify-content: space-around;
@@ -9,10 +10,15 @@
 }
 .row-1 {
     justify-content: space-between;
+    @media screen and (max-width: 785px) {
+         justify-content: space-around;
+        justify-content: space-evenly;
+    }
 }
 .componentWrapper {
     width: 230px;
-    height: 300px;
+    //height: 300px;
+    margin: .625rem .625rem 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
