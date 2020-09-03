@@ -67,8 +67,16 @@
 }
 :global(path.county){
     transition: fill 0.2s ease-in-out;
+    stroke-width: 1px;
+    @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+        /* IE10+ CSS styles go here */
+        stroke-width: 0.125px;
+    }
     &:hover {
         stroke-width: 3px;
+        @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+            stroke-width: 0.375px;
+        }
     }
 }
 
@@ -94,7 +102,7 @@
         font-weight: 600;
         transform: translateX(-50%);
         &.max {
-            left: unset;
+            left: auto;
             right: 0;
             transform: translateX(50%);
         }

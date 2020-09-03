@@ -33,21 +33,24 @@ export default function(_data){
 }
 export function initChart(component){
     function returnSVG(){
-        var svg = component.selectAll('svg g.body')
+        var svg = component.selectAll('.svg-wrapper svg g.body')
             .data([['Pennsylvania', undefined]]);
 
         {
             let entering = svg.enter()
-                .append('svg')
-                .attr('width', '100%')
-                .attr('viewBox', '0 0 100 ' + viewBoxHeight)
-                .attr('focusable', false)
-                .attr('xmlns', 'http://www.w3.org/2000/svg')
-                .attr('version', '1.1')
-                .attr('role', 'img')
-                    .append('g')
-                    .attr('class','body')
-                    .attr('transform', `translate(${margin.left},${margin.top})`);
+                .append('div')
+                .attr('class', `svg-wrapper ${s.svgWrapper}`)
+                .style('padding-bottom', '50%')
+                    .append('svg')
+                    //.attr('width', '100%')
+                    .attr('viewBox', '0 0 100 ' + viewBoxHeight)
+                    .attr('focusable', false)
+                    .attr('xmlns', 'http://www.w3.org/2000/svg')
+                    .attr('version', '1.1')
+                    .attr('role', 'img')
+                        .append('g')
+                        .attr('class','body')
+                        .attr('transform', `translate(${margin.left},${margin.top})`);
 
 
             svg = svg.merge(entering);

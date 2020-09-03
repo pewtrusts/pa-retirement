@@ -1,5 +1,16 @@
 @import '@Project/css/variables.scss';
 
+.svgWrapper {
+    width: 100%;
+    height: 0;
+    max-width: 140px;
+    margin: 0 auto;
+    position: relative;
+    svg {
+        position: absolute;
+    }
+
+}
 .rect {
     transition: height 0.5s ease-in-out, y 0.5s ease-in-out;
     transform: translateZ(0);
