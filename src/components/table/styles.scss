@@ -179,7 +179,7 @@
                 &::after {
                         position: absolute;
                         bottom: 12px;
-                        content: '';
+                        content: ' ';
                         display: inline-block;
                         width: 14px;
                         width: clamp(8px, 1.4vw, 14px);
