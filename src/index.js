@@ -23,7 +23,9 @@ function init(results){
         offset: [0,0],
         trigger: 'mouseenter focus'
     });
-    document.dispatchEvent(new Event('custom-render-trigger'));
+    if ( window.IS_PRERENDERING ){
+        document.dispatchEvent(new Event('custom-render-trigger'));
+    }
 }
 Papa.parse(publicPath + dataFile, {
     complete: function(results) {
