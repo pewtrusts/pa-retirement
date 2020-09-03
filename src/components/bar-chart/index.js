@@ -97,6 +97,7 @@ export default function _createBarChart(d){
             let entering = statewide.enter()
                 .append('line')
                 .attr('class',`statewide ${s.statewide}`)
+                .attr('vector-effect', 'non-scaling-stroke')
                 .attr('x1', _d => yScale(_d[d.property]))
                 .attr('x2', _d => yScale(_d[d.property]))
                 .attr('y1', 0 - margin.top)
