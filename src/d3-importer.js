@@ -7,7 +7,7 @@ import { interpolateRgb, interpolateRgbBasis, piecewise }       from 'd3-interpo
 //import { path }                 from 'd3-path';
 import { scaleLinear }          from 'd3-scale';
 import { select, selectAll }    from 'd3-selection';
-import tip                      from 'd3-tip';
+import tip                      from './d3-tip.js';
 // TO DO: IMPORT ONLY WHAT'S NEEDED
 export default {
     extent,
