@@ -12,6 +12,7 @@
     <!-- Twitter universal website tag code -->
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
     <script async="" src="https://www.google-analytics.com/analytics.js"></script>
+    <script async="" src="https://snap.licdn.com/li.lms-analytics/insight.old.min.js"></script>
     <script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-W2Z5TT"></script>
     <script src="https://connect.facebook.net/signals/config/1833360170048391?v=2.9.24&amp;r=stable" async=""></script>
     <script async="" src="https://connect.facebook.net/en_US/fbevents.js"></script>
@@ -511,11 +512,12 @@ Data Visualization
 
          -->
             <div id="pew-app" class="pct-section no-js">
-              <!--<script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Symbol%2CSet%2CArray.from%2CNodeList.prototype.forEach%2CArray.prototype.find"></script>-->
+              <script crossorigin="anonymous" src="https://polyfill.io/v3/polyfill.min.js?features=Promise%2CSymbol%2CSet%2CArray.from%2CNodeList.prototype.forEach%2CArray.prototype.find%2CObject.assign%2CArray.prototype.fill"></script>
 
               <link class="emitted-css" href="par-styles.css" rel="stylesheet">
 
               <section id="pa-map-container">
+                <p id="pa-field-selector">Select a field:</p>
                 <div class="pa-button-container js-pa-button-container">
                   <div><button class="active" value="liability">Taxpayer burden</button></div>
                   <div><button value="d_ratio">Dependency ratio increase</button></div>
@@ -749,7 +751,7 @@ Data Visualization
                     <div id="g-map_svg-Artboard_1" class="g-artboard" style="max-width: 990px;max-height: 594px" data-aspect-ratio="1.667" data-min-width="0">
                       <div style="padding: 0 0 60% 0;"></div>
                       <!--<svg fill="#b0b0b0" stroke="#ffffff" stroke-width="2" width="100%" style="position:absolute;top:0;" viewBox="0 0 100 60"></svg>-->
-                      <svg class="background" fill="#b0b0b0" stroke="#ffffff" stroke-width="2" width="100%" style="position:absolute;top:0;" viewBox="0 0 100 60">
+                      <svg class="background" fill="#b0b0b0" stroke="#ffffff" stroke-width="2" style="position:absolute;top:0;" viewBox="0 0 100 60">
                         <g>
                           <path d="M8.201821350809375,32.842201069735715L8.208091032770362,29.648981309643574L9.40387452639721,28.155276889239477L11.104813234929672,26.03010966828599L16.143874755683456,26.195486937068022L16.190311299935118,26.23886927732116L16.058907811886364,30.59553682776993L15.973768668191887,31.913607178635367L15.853187165594555,35.61713437055009L15.769245399406657,37.199042873547086L13.116738383104668,37.03887600164549L8.199887753307962,36.81267005022341Z" stroke-width="1" stroke="#fff" fill="rgb(31, 81, 149)" class="county" vector-effect="non-scaling-stroke" data-county="butler"></path>
                         </g>
@@ -1162,7 +1164,7 @@ Data Visualization
                       <div id="g-ai0-67" class="g-Layer_1 g-aiAbs g-aiPointText" style="top:91.4498%;margin-top:-6.1px;left:55.293%;width:49px;" data-key="Adams">
                         <p class="g-pstyle0">Adams</p>
                       </div>
-                      <svg fill="transparent" stroke="transparent" stroke-width="2" width="100%" style="position:absolute;top:0;" viewBox="0 0 100 60">
+                      <svg fill="transparent" stroke="transparent" stroke-width="2" style="position:absolute;top:0;" viewBox="0 0 100 60">
                         <g>
                           <path d="M8.201821350809375,32.842201069735715L8.208091032770362,29.648981309643574L9.40387452639721,28.155276889239477L11.104813234929672,26.03010966828599L16.143874755683456,26.195486937068022L16.190311299935118,26.23886927732116L16.058907811886364,30.59553682776993L15.973768668191887,31.913607178635367L15.853187165594555,35.61713437055009L15.769245399406657,37.199042873547086L13.116738383104668,37.03887600164549L8.199887753307962,36.81267005022341Z" stroke-width="1" class="county" vector-effect="non-scaling-stroke" data-county="butler"></path>
                         </g>
@@ -1457,65 +1459,70 @@ Data Visualization
                 </div>
                 <div class="county-data--chart-wrapper">
                   <div class="js-row row--3lYxA row-0--3NnGx">
-                    <div class="js-county-data-component-wrapper componentWrapper--1kVm0"><svg width="100%" viewBox="0 0 100 77" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
-                        <g class="body" transform="translate(1,13)">
-                          <rect class="column rect---LNSN rect-0--3AHg-" width="28" height="32.531521328803315" x="14" y="31.468478671196685"></rect>
-                          <rect class="column rect---LNSN rect-1--2_wY0" width="28" height="37.60513401283503" x="56" y="26.39486598716497"></rect>
-                          <g class="labels labels--3SS9N"><text class="label-0--3uDBg" text-anchor="middle" x="28" y="0" dy="-0.5em" transform="translate(0 31.468478671196685)">27%</text></g>
-                          <g class="labels labels--3SS9N"><text class="label-1--1rGHm" text-anchor="middle" x="70" y="0" dy="-0.5em" transform="translate(0 26.39486598716497)">31%</text></g>
-                          <line class="axis axis--10JgM" x1="7" x2="91" y1="64" y2="64" transform="translate(0 0)"></line>
-                        </g>
-                      </svg>
+                    <div class="js-county-data-component-wrapper componentWrapper--1kVm0">
+                      <div class="svg-wrapper svgWrapper--dUFVB" style="padding-bottom: 50%;"><svg viewBox="0 0 100 77" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
+                          <g class="body" transform="translate(1,13)">
+                            <rect class="column rect---LNSN rect-0--3AHg-" width="28" height="32.531521328803315" x="14" y="31.468478671196685"></rect>
+                            <rect class="column rect---LNSN rect-1--2_wY0" width="28" height="37.60513401283503" x="56" y="26.39486598716497"></rect>
+                            <g class="labels labels--3SS9N"><text class="label-0--3uDBg" text-anchor="middle" x="28" y="0" dy="-0.5em" transform="translate(0 31.468478671196685)">27%</text></g>
+                            <g class="labels labels--3SS9N"><text class="label-1--1rGHm" text-anchor="middle" x="70" y="0" dy="-0.5em" transform="translate(0 26.39486598716497)">31%</text></g>
+                            <line class="axis axis--10JgM" x1="7" x2="91" y1="64" y2="64" transform="translate(0 0)"></line>
+                          </g>
+                        </svg></div>
                       <div class="js-callout callout--N03aS"><span>31%</span></div>
                       <div class="js-title title--3c8x5">Increase in aged 65+ households with less than $75,000 in annual income, 2015-2030</div>
                     </div>
-                    <div class="js-county-data-component-wrapper componentWrapper--1kVm0"><svg width="100%" viewBox="0 0 100 77" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
-                        <g class="body" transform="translate(1,13)">
-                          <rect class="column rect---LNSN rect-0--3AHg-" width="28" height="52.148148148148145" x="14" y="11.851851851851855"></rect>
-                          <rect class="column rect---LNSN rect-1--2_wY0" width="28" height="42.88215488215488" x="56" y="21.11784511784512"></rect>
-                          <g class="labels labels--3SS9N"><text class="label-0--3uDBg" text-anchor="middle" x="28" y="0" dy="-0.5em" transform="translate(0 11.851851851851855)">$4,840</text></g>
-                          <g class="labels labels--3SS9N"><text class="label-1--1rGHm" text-anchor="middle" x="70" y="0" dy="-0.5em" transform="translate(0 21.11784511784512)">$3,980</text></g>
-                          <line class="axis axis--10JgM" x1="7" x2="91" y1="64" y2="64" transform="translate(0 0)"></line>
-                        </g>
-                      </svg>
+                    <div class="js-county-data-component-wrapper componentWrapper--1kVm0">
+                      <div class="svg-wrapper svgWrapper--dUFVB" style="padding-bottom: 50%;"><svg viewBox="0 0 100 77" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
+                          <g class="body" transform="translate(1,13)">
+                            <rect class="column rect---LNSN rect-0--3AHg-" width="28" height="52.148148148148145" x="14" y="11.851851851851855"></rect>
+                            <rect class="column rect---LNSN rect-1--2_wY0" width="28" height="42.88215488215488" x="56" y="21.11784511784512"></rect>
+                            <g class="labels labels--3SS9N"><text class="label-0--3uDBg" text-anchor="middle" x="28" y="0" dy="-0.5em" transform="translate(0 11.851851851851855)">$4,840</text></g>
+                            <g class="labels labels--3SS9N"><text class="label-1--1rGHm" text-anchor="middle" x="70" y="0" dy="-0.5em" transform="translate(0 21.11784511784512)">$3,980</text></g>
+                            <line class="axis axis--10JgM" x1="7" x2="91" y1="64" y2="64" transform="translate(0 0)"></line>
+                          </g>
+                        </svg></div>
                       <div class="js-callout callout--N03aS"><span>$3,980</span></div>
                       <div class="js-title title--3c8x5">Average annual income shortfall for those with annual income less than $75,000, 2030</div>
                     </div>
                   </div>
                   <div class="js-row row--3lYxA row-1--38ucn">
-                    <div class="js-county-data-component-wrapper componentWrapper--1kVm0"><svg width="100%" viewBox="0 0 100 77" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
-                        <g class="body" transform="translate(1,13)">
-                          <rect class="column rect---LNSN rect-0--3AHg-" width="28" height="33.771759309817625" x="14" y="30.228240690182375"></rect>
-                          <rect class="column rect---LNSN rect-1--2_wY0" width="28" height="37.755596811182706" x="56" y="26.244403188817294"></rect>
-                          <g class="labels labels--3SS9N"><text class="label-0--3uDBg" text-anchor="middle" x="28" y="0" dy="-0.5em" transform="translate(0 30.228240690182375)">48%</text></g>
-                          <g class="labels labels--3SS9N"><text class="label-1--1rGHm" text-anchor="middle" x="70" y="0" dy="-0.5em" transform="translate(0 26.244403188817294)">54%</text></g>
-                          <line class="axis axis--10JgM" x1="7" x2="91" y1="64" y2="64" transform="translate(0 0)"></line>
-                        </g>
-                      </svg>
+                    <div class="js-county-data-component-wrapper componentWrapper--1kVm0">
+                      <div class="svg-wrapper svgWrapper--dUFVB" style="padding-bottom: 50%;"><svg viewBox="0 0 100 77" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
+                          <g class="body" transform="translate(1,13)">
+                            <rect class="column rect---LNSN rect-0--3AHg-" width="28" height="33.771759309817625" x="14" y="30.228240690182375"></rect>
+                            <rect class="column rect---LNSN rect-1--2_wY0" width="28" height="37.755596811182706" x="56" y="26.244403188817294"></rect>
+                            <g class="labels labels--3SS9N"><text class="label-0--3uDBg" text-anchor="middle" x="28" y="0" dy="-0.5em" transform="translate(0 30.228240690182375)">48%</text></g>
+                            <g class="labels labels--3SS9N"><text class="label-1--1rGHm" text-anchor="middle" x="70" y="0" dy="-0.5em" transform="translate(0 26.244403188817294)">54%</text></g>
+                            <line class="axis axis--10JgM" x1="7" x2="91" y1="64" y2="64" transform="translate(0 0)"></line>
+                          </g>
+                        </svg></div>
                       <div class="js-callout callout--N03aS"><span>54%</span></div>
                       <div class="js-title title--3c8x5">Increase in the ratio of older to working-age households, 2015-2030</div>
                     </div>
-                    <div class="js-county-data-component-wrapper componentWrapper--1kVm0"><svg width="100%" viewBox="0 0 100 77" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
-                        <g class="body" transform="translate(1,13)">
-                          <rect class="column rect---LNSN rect-0--3AHg-" width="28" height="48.77053031743015" x="14" y="15.22946968256985"></rect>
-                          <rect class="column rect---LNSN rect-1--2_wY0" width="28" height="42.23805360197681" x="56" y="21.76194639802319"></rect>
-                          <g class="labels labels--3SS9N"><text class="label-0--3uDBg" text-anchor="middle" x="28" y="0" dy="-0.5em" transform="translate(0 15.22946968256985)">$4,009</text></g>
-                          <g class="labels labels--3SS9N"><text class="label-1--1rGHm" text-anchor="middle" x="70" y="0" dy="-0.5em" transform="translate(0 21.76194639802319)">$3,472</text></g>
-                          <line class="axis axis--10JgM" x1="7" x2="91" y1="64" y2="64" transform="translate(0 0)"></line>
-                        </g>
-                      </svg>
+                    <div class="js-county-data-component-wrapper componentWrapper--1kVm0">
+                      <div class="svg-wrapper svgWrapper--dUFVB" style="padding-bottom: 50%;"><svg viewBox="0 0 100 77" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
+                          <g class="body" transform="translate(1,13)">
+                            <rect class="column rect---LNSN rect-0--3AHg-" width="28" height="48.77053031743015" x="14" y="15.22946968256985"></rect>
+                            <rect class="column rect---LNSN rect-1--2_wY0" width="28" height="42.23805360197681" x="56" y="21.76194639802319"></rect>
+                            <g class="labels labels--3SS9N"><text class="label-0--3uDBg" text-anchor="middle" x="28" y="0" dy="-0.5em" transform="translate(0 15.22946968256985)">$4,009</text></g>
+                            <g class="labels labels--3SS9N"><text class="label-1--1rGHm" text-anchor="middle" x="70" y="0" dy="-0.5em" transform="translate(0 21.76194639802319)">$3,472</text></g>
+                            <line class="axis axis--10JgM" x1="7" x2="91" y1="64" y2="64" transform="translate(0 0)"></line>
+                          </g>
+                        </svg></div>
                       <div class="js-callout callout--N03aS"><span>$3,472</span></div>
                       <div class="js-title title--3c8x5">Cumulative additional taxpayer liability per household due to insufficient savings, 2015-2030</div>
                     </div>
-                    <div class="js-county-data-component-wrapper componentWrapper--1kVm0"><svg width="100%" viewBox="0 0 100 77" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
-                        <g class="body" transform="translate(1,13)">
-                          <rect class="column rect---LNSN rect-0--3AHg-" width="28" height="52" x="14" y="12"></rect>
-                          <rect class="column rect---LNSN rect-1--2_wY0" width="28" height="42.666666666666664" x="56" y="21.333333333333336"></rect>
-                          <g class="labels labels--3SS9N"><text class="label-0--3uDBg" text-anchor="middle" x="28" y="0" dy="-0.5em" transform="translate(0 12)">$1,170</text></g>
-                          <g class="labels labels--3SS9N"><text class="label-1--1rGHm" text-anchor="middle" x="70" y="0" dy="-0.5em" transform="translate(0 21.333333333333336)">$960</text></g>
-                          <line class="axis axis--10JgM" x1="7" x2="91" y1="64" y2="64" transform="translate(0 0)"></line>
-                        </g>
-                      </svg>
+                    <div class="js-county-data-component-wrapper componentWrapper--1kVm0">
+                      <div class="svg-wrapper svgWrapper--dUFVB" style="padding-bottom: 50%;"><svg viewBox="0 0 100 77" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
+                          <g class="body" transform="translate(1,13)">
+                            <rect class="column rect---LNSN rect-0--3AHg-" width="28" height="52" x="14" y="12"></rect>
+                            <rect class="column rect---LNSN rect-1--2_wY0" width="28" height="42.666666666666664" x="56" y="21.333333333333336"></rect>
+                            <g class="labels labels--3SS9N"><text class="label-0--3uDBg" text-anchor="middle" x="28" y="0" dy="-0.5em" transform="translate(0 12)">$1,170</text></g>
+                            <g class="labels labels--3SS9N"><text class="label-1--1rGHm" text-anchor="middle" x="70" y="0" dy="-0.5em" transform="translate(0 21.333333333333336)">$960</text></g>
+                            <line class="axis axis--10JgM" x1="7" x2="91" y1="64" y2="64" transform="translate(0 0)"></line>
+                          </g>
+                        </svg></div>
                       <div class="js-callout callout--N03aS"><span>$960 a year<br>or $80 a month</span></div>
                       <div class="js-title title--3c8x5">Additional annual household savings required for retirement adequacy, 2015-2030</div>
                     </div>
@@ -1536,7 +1543,7 @@ Data Visualization
               </section>
               <section id="render-here">
                 <div class="line-key-wrapper">
-                  <div class="line-key"></div> = statewide average
+                  <div class="line-key"></div> statewide average
                 </div>
                 <table class="js-main-table PATable--3ZH_3">
                   <thead>
@@ -1559,7 +1566,7 @@ Data Visualization
                         <div><span><span>31</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="33.99585016926942"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1568,7 +1575,7 @@ Data Visualization
                         <div><span><span>54</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="58.993120017472975"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1589,7 +1596,7 @@ Data Visualization
                         <div><span><span>20</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="22.2889592661352"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1598,7 +1605,7 @@ Data Visualization
                         <div><span><span>44</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="48.3564486185432"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1619,7 +1626,7 @@ Data Visualization
                         <div><span><span>23</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="25.00819045538932"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1628,7 +1635,7 @@ Data Visualization
                         <div><span><span>68</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="74.57682647155181"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1649,7 +1656,7 @@ Data Visualization
                         <div><span><span>22</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="24.440318881729826"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1658,7 +1665,7 @@ Data Visualization
                         <div><span><span>54</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="59.09140548214481"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1679,7 +1686,7 @@ Data Visualization
                         <div><span><span>29</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="32.0847439117615"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1688,7 +1695,7 @@ Data Visualization
                         <div><span><span>47</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="50.79174402096756"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1709,7 +1716,7 @@ Data Visualization
                         <div><span><span>26</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="28.437261111717817"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1718,7 +1725,7 @@ Data Visualization
                         <div><span><span>42</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="46.20508900294856"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1739,7 +1746,7 @@ Data Visualization
                         <div><span><span>28</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="31.0582068363001"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1748,7 +1755,7 @@ Data Visualization
                         <div><span><span>51</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="55.45484328928689"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1769,7 +1776,7 @@ Data Visualization
                         <div><span><span>30</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="32.281314841105164"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1778,7 +1785,7 @@ Data Visualization
                         <div><span><span>53</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="57.507917440209674"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1799,7 +1806,7 @@ Data Visualization
                         <div><span><span>18</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="19.493283826580758"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1808,7 +1815,7 @@ Data Visualization
                         <div><span><span>80</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="86.88435076990281"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1829,7 +1836,7 @@ Data Visualization
                         <div><span><span>24</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="26.045648138036476"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1838,7 +1845,7 @@ Data Visualization
                         <div><span><span>64</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="69.9137272032325"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1859,7 +1866,7 @@ Data Visualization
                         <div><span><span>20</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="22.267118051763678"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1868,7 +1875,7 @@ Data Visualization
                         <div><span><span>41</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="44.45779185322704"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1889,7 +1896,7 @@ Data Visualization
                         <div><span><span>22</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="24.462160096101346"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1898,7 +1905,7 @@ Data Visualization
                         <div><span><span>92</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="100"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1919,7 +1926,7 @@ Data Visualization
                         <div><span><span>26</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="28.60107021950421"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1928,7 +1935,7 @@ Data Visualization
                         <div><span><span>62</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="68.00262094572459"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1949,7 +1956,7 @@ Data Visualization
                         <div><span><span>29</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="31.604237195588077"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1958,7 +1965,7 @@ Data Visualization
                         <div><span><span>31</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="33.84296166866878"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1979,7 +1986,7 @@ Data Visualization
                         <div><span><span>16</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="17.462050890029484"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -1988,7 +1995,7 @@ Data Visualization
                         <div><span><span>64</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="69.9137272032325"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2009,7 +2016,7 @@ Data Visualization
                         <div><span><span>40</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="43.21284263405045"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2018,7 +2025,7 @@ Data Visualization
                         <div><span><span>53</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="57.57344108332424"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2039,7 +2046,7 @@ Data Visualization
                         <div><span><span>32</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="34.59648356448619"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2048,7 +2055,7 @@ Data Visualization
                         <div><span><span>45</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="48.92432019220269"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2069,7 +2076,7 @@ Data Visualization
                         <div><span><span>22</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="23.577590914054824"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2078,7 +2085,7 @@ Data Visualization
                         <div><span><span>31</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="33.89756470459758"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2099,7 +2106,7 @@ Data Visualization
                         <div><span><span>16</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="17.254559353500056"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2108,7 +2115,7 @@ Data Visualization
                         <div><span><span>38</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="41.52014852025773"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2129,7 +2136,7 @@ Data Visualization
                         <div><span><span>29</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="31.669760838702633"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2138,7 +2145,7 @@ Data Visualization
                         <div><span><span>54</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="59.320738233045766"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2159,7 +2166,7 @@ Data Visualization
                         <div><span><span>24</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="26.318663317680464"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2168,7 +2175,7 @@ Data Visualization
                         <div><span><span>38</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="41.92421098613083"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2189,7 +2196,7 @@ Data Visualization
                         <div><span><span>46</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="50.267554876051115"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2198,7 +2205,7 @@ Data Visualization
                         <div><span><span>62</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="67.88249426668123"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2219,7 +2226,7 @@ Data Visualization
                         <div><span><span>29</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="31.997379054275417"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2228,7 +2235,7 @@ Data Visualization
                         <div><span><span>55</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="59.932292235448294"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2249,7 +2256,7 @@ Data Visualization
                         <div><span><span>17</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="19.100141967893418"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2258,7 +2265,7 @@ Data Visualization
                         <div><span><span>65</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="70.55804302719231"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2279,7 +2286,7 @@ Data Visualization
                         <div><span><span>36</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="39.7728513705362"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2288,7 +2295,7 @@ Data Visualization
                         <div><span><span>49</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="53.93687889046631"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2309,7 +2316,7 @@ Data Visualization
                         <div><span><span>33</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="36.54035164355138"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2318,7 +2325,7 @@ Data Visualization
                         <div><span><span>49</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="53.9150376760948"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2339,7 +2346,7 @@ Data Visualization
                         <div><span><span>12</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="13.344981980998144"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2348,7 +2355,7 @@ Data Visualization
                         <div><span><span>26</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="28.8194823632194"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2369,7 +2376,7 @@ Data Visualization
                         <div><span><span>26</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="27.956754395544394"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2378,7 +2385,7 @@ Data Visualization
                         <div><span><span>37</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="40.53729387353936"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2399,7 +2406,7 @@ Data Visualization
                         <div><span><span>28</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="30.457573441083323"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2408,7 +2415,7 @@ Data Visualization
                         <div><span><span>37</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="40.65742055258273"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2429,7 +2436,7 @@ Data Visualization
                         <div><span><span>32</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="35.39368788904663"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2438,7 +2445,7 @@ Data Visualization
                         <div><span><span>49</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="53.31440428087802"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2459,7 +2466,7 @@ Data Visualization
                         <div><span><span>25</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="27.476247679370974"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2468,7 +2475,7 @@ Data Visualization
                         <div><span><span>22</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="24.28743038112919"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2489,7 +2496,7 @@ Data Visualization
                         <div><span><span>29</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="31.702522660259913"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2498,7 +2505,7 @@ Data Visualization
                         <div><span><span>37</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="40.65742055258273"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2519,7 +2526,7 @@ Data Visualization
                         <div><span><span>24</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="26.42786938953806"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2528,7 +2535,7 @@ Data Visualization
                         <div><span><span>52</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="56.51414218630556"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2549,7 +2556,7 @@ Data Visualization
                         <div><span><span>34</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="36.889811073495686"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2558,7 +2565,7 @@ Data Visualization
                         <div><span><span>52</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="56.634268865348915"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2579,7 +2586,7 @@ Data Visualization
                         <div><span><span>20</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="22.081467729605766"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2588,7 +2595,7 @@ Data Visualization
                         <div><span><span>36</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="38.83367915256088"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2609,7 +2616,7 @@ Data Visualization
                         <div><span><span>24</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="26.274980888937428"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2618,7 +2625,7 @@ Data Visualization
                         <div><span><span>39</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="42.7432565250628"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2639,7 +2646,7 @@ Data Visualization
                         <div><span><span>21</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="22.867751446980453"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2648,7 +2655,7 @@ Data Visualization
                         <div><span><span>47</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="51.86196352517201"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2669,7 +2676,7 @@ Data Visualization
                         <div><span><span>27</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="29.005132685377312"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2678,7 +2685,7 @@ Data Visualization
                         <div><span><span>44</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="48.072512831713446"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2699,7 +2706,7 @@ Data Visualization
                         <div><span><span>29</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="31.418586873430165"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2708,7 +2715,7 @@ Data Visualization
                         <div><span><span>48</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="52.76837392159004"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2729,7 +2736,7 @@ Data Visualization
                         <div><span><span>19</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="20.661788795457028"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2738,7 +2745,7 @@ Data Visualization
                         <div><span><span>41</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="44.5779185322704"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2759,7 +2766,7 @@ Data Visualization
                         <div><span><span>31</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="34.20334170579884"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2768,7 +2775,7 @@ Data Visualization
                         <div><span><span>47</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="51.67631320301409"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2789,7 +2796,7 @@ Data Visualization
                         <div><span><span>38</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="41.73856066397292"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2798,7 +2805,7 @@ Data Visualization
                         <div><span><span>52</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="56.75439554439228"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2819,7 +2826,7 @@ Data Visualization
                         <div><span><span>17</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="18.55411160860544"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2828,7 +2835,7 @@ Data Visualization
                         <div><span><span>37</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="40.00218412143715"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2849,7 +2856,7 @@ Data Visualization
                         <div><span><span>13</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="14.524407557060174"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2858,7 +2865,7 @@ Data Visualization
                         <div><span><span>24</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="25.685268100906413"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2879,7 +2886,7 @@ Data Visualization
                         <div><span><span>53</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="57.857376870153985"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2888,7 +2895,7 @@ Data Visualization
                         <div><span><span>77</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="84.19788140220597"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2909,7 +2916,7 @@ Data Visualization
                         <div><span><span>15</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="15.944086491208912"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2918,7 +2925,7 @@ Data Visualization
                         <div><span><span>54</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="58.643660587528665"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2939,7 +2946,7 @@ Data Visualization
                         <div><span><span>5</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="5.274653270721853"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2948,7 +2955,7 @@ Data Visualization
                         <div><span><span>32</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="34.672927814786505"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2969,7 +2976,7 @@ Data Visualization
                         <div><span><span>22</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="24.036256415856723"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2978,7 +2985,7 @@ Data Visualization
                         <div><span><span>52</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="56.983728295293226"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -2999,7 +3006,7 @@ Data Visualization
                         <div><span><span>24</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="26.22037785300863"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3008,7 +3015,7 @@ Data Visualization
                         <div><span><span>43</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="46.54362782570711"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3029,7 +3036,7 @@ Data Visualization
                         <div><span><span>32</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="34.880419351315936"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3038,7 +3045,7 @@ Data Visualization
                         <div><span><span>65</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="70.481598776892"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3059,7 +3066,7 @@ Data Visualization
                         <div><span><span>49</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="53.718466746751126"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3068,7 +3075,7 @@ Data Visualization
                         <div><span><span>40</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="43.682428743038116"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3089,7 +3096,7 @@ Data Visualization
                         <div><span><span>40</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="43.485857813694444"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3098,7 +3105,7 @@ Data Visualization
                         <div><span><span>59</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="64.95577154089767"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3119,7 +3126,7 @@ Data Visualization
                         <div><span><span>25</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="26.930217320083"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3128,7 +3135,7 @@ Data Visualization
                         <div><span><span>32</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="34.98962542317353"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3149,7 +3156,7 @@ Data Visualization
                         <div><span><span>22</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="23.752320629026975"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3158,7 +3165,7 @@ Data Visualization
                         <div><span><span>33</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="36.19089221360707"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3179,7 +3186,7 @@ Data Visualization
                         <div><span><span>28</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="30.785191656656107"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3188,7 +3195,7 @@ Data Visualization
                         <div><span><span>39</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="42.492082559790326"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3209,7 +3216,7 @@ Data Visualization
                         <div><span><span>20</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="22.2889592661352"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3218,7 +3225,7 @@ Data Visualization
                         <div><span><span>47</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="51.76367806050016"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3239,7 +3246,7 @@ Data Visualization
                         <div><span><span>10</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="10.87692475701649"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3248,7 +3255,7 @@ Data Visualization
                         <div><span><span>62</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="67.60947908703724"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3269,7 +3276,7 @@ Data Visualization
                         <div><span><span>31</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="33.493502238724474"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3278,7 +3285,7 @@ Data Visualization
                         <div><span><span>57</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="62.77165010374577"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3299,7 +3306,7 @@ Data Visualization
                         <div><span><span>26</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="28.448181718903577"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3308,7 +3315,7 @@ Data Visualization
                         <div><span><span>45</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="49.52495358741946"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3329,7 +3336,7 @@ Data Visualization
                         <div><span><span>12</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="13.530632303156057"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3338,7 +3345,7 @@ Data Visualization
                         <div><span><span>26</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="28.45910232608933"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3359,7 +3366,7 @@ Data Visualization
                         <div><span><span>39</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="42.361035273561214"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3368,7 +3375,7 @@ Data Visualization
                         <div><span><span>65</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="70.43791634814896"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3389,7 +3396,7 @@ Data Visualization
                         <div><span><span>32</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="35.39368788904663"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3398,7 +3405,7 @@ Data Visualization
                         <div><span><span>69</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="74.91536529431038"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3419,7 +3426,7 @@ Data Visualization
                         <div><span><span>20</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="22.343562302063997"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3428,7 +3435,7 @@ Data Visualization
                         <div><span><span>60</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="65.18510429179862"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3449,7 +3456,7 @@ Data Visualization
                         <div><span><span>32</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="35.02238724473081"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3458,7 +3465,7 @@ Data Visualization
                         <div><span><span>47</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="50.86818827126789"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3479,7 +3486,7 @@ Data Visualization
                         <div><span><span>16</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="17.15627388882822"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3488,7 +3495,7 @@ Data Visualization
                         <div><span><span>56</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="61.6577481707983"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3509,7 +3516,7 @@ Data Visualization
                         <div><span><span>39</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="42.97258927596375"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3518,7 +3525,7 @@ Data Visualization
                         <div><span><span>62</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="68.11182701758219"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3539,7 +3546,7 @@ Data Visualization
                         <div><span><span>32</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="35.15343453095993"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3548,7 +3555,7 @@ Data Visualization
                         <div><span><span>57</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="62.618761603145146"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3569,7 +3576,7 @@ Data Visualization
                         <div><span><span>27</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="29.40919515125041"></rect>
-                              <line class="statewide statewide--2aYQA" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="29.40919515125041" x2="29.40919515125041" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3578,7 +3585,7 @@ Data Visualization
                         <div><span><span>48</span></span><svg class="svg--t6sqn" preserveAspectRatio="none" viewBox="0 0 100 25" focusable="false" xmlns="http://www.w3.org/2000/svg" version="1.1" role="img">
                             <g transform="translate(0,6.25)">
                               <rect x="0" y="0" height="12.5" width="52.76837392159004"></rect>
-                              <line class="statewide statewide--2aYQA" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
+                              <line class="statewide statewide--2aYQA" vector-effect="non-scaling-stroke" x1="52.76837392159004" x2="52.76837392159004" y1="-6.25" y2="18.75"></line>
                             </g>
                             <line class="axisLine--3M5oi" x1="0" x2="0" y1="3.125" y2="21.875" vector-effect="non-scaling-stroke"></line>
                           </svg></div>
@@ -3596,7 +3603,7 @@ Data Visualization
             </div>
             <div class="clearfix"></div>
 
-            <script class="emitted-bundle" src="index.js?v=f2527c"></script>
+            <script class="emitted-bundle" src="index.js?v=bf013c"></script>
 
 
 
@@ -3849,7 +3856,6 @@ Data Visualization
     </footer>
     <script src="assets/Pew/js/libraries-generated.js"></script>
     <script src="assets/Pew/js/index-generated.js"></script>
-    <div class="d3-tip--3-ZLt n--1TOTD" style="position: absolute; top: 0px; opacity: 0; pointer-events: none; box-sizing: border-box;"></div>
     <div class="selectionSharer" id="selectionSharerPopover" style="position:absolute;">
       <div id="selectionSharerPopover-inner">
         <ul>
@@ -3874,7 +3880,8 @@ Data Visualization
       </div>
     </div>
 
-
+    <script src="https://analytics.twitter.com/i/adsct?type=javascript&amp;version=1.1.0&amp;p_id=Twitter&amp;p_user_id=0&amp;txn_id=nzc7z&amp;events=%5B%5B%22pageview%22%2Cnull%5D%5D&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels&amp;tw_document_href=http%3A%2F%2Flocalhost%3A8000%2F" type="text/javascript"></script>
+    <div class="d3-tip--3-ZLt n--1TOTD" style="position: absolute; top: 0px; opacity: 0; pointer-events: none; box-sizing: border-box;"></div>
     <div class="explore-module__modal-container">
       <div class="explore-module__modal-inner">
         <div class="explore-module__close-modal js-close-explore-module">
@@ -3973,14 +3980,13 @@ Data Visualization
     <script type="text/javascript" id="" src="/-/media/assets/2020/01/oncue_5824889362579456_pew.js"></script>
     <script type="text/javascript" id="">
       try {
-        var impressions = google_tag_manager["GTM-W2Z5TT"].macro(10) || [];
+        var impressions = google_tag_manager["GTM-W2Z5TT"].macro(12) || [];
         if (0 < impressions.length)
           for (i in impressions) impressions[i].event = "Personalized Component Impression", window.dataLayer.push(impressions[i])
       } catch (a) {
         console.error(a.message)
       };
     </script>
-    <script src="https://analytics.twitter.com/i/adsct?type=javascript&amp;version=1.1.0&amp;p_id=Twitter&amp;p_user_id=0&amp;txn_id=nzc7z&amp;events=%5B%5B%22pageview%22%2Cnull%5D%5D&amp;tw_sale_amount=0&amp;tw_order_quantity=0&amp;tw_iframe_status=0&amp;tpx_cb=twttr.conversion.loadPixels&amp;tw_document_href=http%3A%2F%2Flocalhost%3A8000%2F" type="text/javascript"></script>
   </body>
 
 </html>
