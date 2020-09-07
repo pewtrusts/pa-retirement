@@ -12,6 +12,7 @@ import s from './styles.scss';
 import UISvelte from '@Submodule/UI-svelte/';
 import CountySummary from '@Project/components/county-summary/index.svelte';
 import { countyStore } from '@Project/store.js';
+import { GTMPush } from '@Submodule/UTILS';
 
 if ( module.hot ){
     module.hot.accept('./styles.scss');
@@ -22,7 +23,9 @@ var data;
 var componentWrappers;
 const inlineCounty = document.querySelector('.js-county-name-inline');
 const legendCounty = document.querySelector('.js-county-legend-inline');
-
+countyStore.subscribe(v => {
+    GTMPush('PA-Retirement|CountyData|' + v);
+});
 export default function(_data){
     data = _data;
     initSelector(data);
@@ -125,7 +128,7 @@ function selectionHandler(){
     countyStore.set(county);
     componentWrappers.each(function(d,i,arr){
         updateComponent.call(this,{d,i,arr,county});
-    })
+    });
 }
 function initSelector(data){
     var dropdown = new UISvelte.dropdown({
