@@ -8,10 +8,11 @@
         table-layout: fixed;
     }
     font-size: clamp(0.6rem, 1.6vw, 1rem);
-    /*@media screen and (max-width: 665px) {
-        font-size: 0.85rem;
+    @media screen and (max-width: 550px) {
+        font-size: 0.6rem; // fallback for browsers that do not support clamp()
+        font-size: clamp(0.6rem, 1.6vw, 1rem);
     }
-
+/*
     @media screen and (max-width: 600px) {
         font-size: 0.75rem;
     }
