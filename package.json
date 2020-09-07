@@ -30,6 +30,7 @@
     "css-loader": "^3.4.2",
     "cssnano": "^4.1.10",
     "d3-array": "^2.5.0",
+    "d3-collection": "^1.0.7",
     "d3-format": "^1.4.4",
     "d3-interpolate": "^1.4.0",
     "d3-scale": "^3.2.1",

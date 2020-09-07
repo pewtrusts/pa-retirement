@@ -1,3 +1,5 @@
+/* eslint no-unused-vars: warn */
+/* eslint no-undef: warn */
 /**
  * d3.tip
  * Copyright (c) 2013-2017 Justin Palmer
