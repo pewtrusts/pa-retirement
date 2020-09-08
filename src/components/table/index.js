@@ -31,7 +31,7 @@ function maybeCreateBarChart(d){
 export default function init({data,columns,container}){
     data.sort(function(a,b){
         
-        return a.county == 'Pennsylvania' ? 1 : b.county == 'Pennsylvania' ? -1 : 0;
+        return a.county == 'Pennsylvania' ? -1 : b.county == 'Pennsylvania' ? 1 : 0;
     });
     var table = d3.select(container)
         .selectAll('table.js-main-table')
@@ -40,7 +40,7 @@ export default function init({data,columns,container}){
     {
         let entering = table.enter()
             .append('table')
-            .attr('class', 'js-main-table ' + s.PATable);
+            .attr('class', `js-main-table ${s.PATable}`);
 
         entering.append('thead').append('tr');
         entering.append('tbody');

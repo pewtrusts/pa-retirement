@@ -1,6 +1,5 @@
 @import '@Project/css/variables.scss';
 
-
 .PATable {
     width: 100%;
     //table-layout: fixed;
@@ -115,7 +114,7 @@
         }
     }
 
-    tbody tr:not(:last-child) {
+    tbody tr {
 
         th,
         td {
@@ -148,18 +147,11 @@
         }
     }
 
-    tbody tr:last-child {
+    tbody tr.averageRow {
 
-        th,
-        td {
-            position: sticky;
-            bottom: 0;
-            @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-            /* IE10+ CSS styles go here */
-                position: static; // ticking to bottom not working in IE11
-
-            }
-            //transform:translateY(-100%);
+        th, td {
+            position: relative;
+            top: 1px;
         }
     }
 
@@ -257,12 +249,11 @@
     }
 
     tr.averageRow {
-        background-color: $dark_gray;
-        color: #fff;
 
         th,
         td {
-            background-color: inherit;
+            background-color: $dark_gray;
+            color: #fff;
         }
     }
 }

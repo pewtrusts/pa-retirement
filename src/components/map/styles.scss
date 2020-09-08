@@ -9,6 +9,7 @@
     @media screen and (max-width: 435px) {
         flex-direction: column;
         margin-bottom: 35px;
+        height: auto;
     }
 }
 :global(#pa-field-selector){
