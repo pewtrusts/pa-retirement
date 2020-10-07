@@ -21,7 +21,8 @@ function init(results){
     initCountyData(results.data);
     tippy('[data-tippy-content]', {
         offset: [0,0],
-        trigger: 'mouseenter focus'
+        trigger: 'mouseenter focus',
+        allowHTML: true
     });
     if ( window.IS_PRERENDERING ){
         document.dispatchEvent(new Event('custom-render-trigger'));
