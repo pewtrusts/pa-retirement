@@ -96,11 +96,12 @@ function updateCallout(component, {data,field,county = 'Adams'}){
     component.select('div.js-callout span')
         .datum(calloutValue)
         .html(d => field !== 'required' ? 
+            field == 'd_ratio' ? `${d3.format(metadata[field].format)(d)} ${d < 0 ? 'decrease' : 'increase'}` :
             d3.format(metadata[field].format)(d) :
             `${d3.format(metadata[field].format)(d)} a year<br />` +
             `or ${d3.format(metadata[field].format)(d / 12)} a month`
         );
-}
+} 
 function initTitle(component,field){
     var title = component.selectAll('div.js-title')
         .data([field]);

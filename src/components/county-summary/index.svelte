@@ -22,9 +22,8 @@
     
 </style>
 <p>
-    In 2030, on average, residents aged 65 and older in {county} County with a
-    household income of less than $75,000 can expect an annual {shortfall} income
-    shortfall due to insufficient savings. Without new saving, county taxpayers
+    In 2030, on average, {county} County’s vulnerable older households can expect an annual income
+    shortfall of {shortfall} due to insufficient savings. Without new saving, county taxpayers
     will need to pay a cumulative {liability} from 2015 to 2030 to
     maintain existing social services to older residents. The burden is
     exacerbated by the fact that the aged dependency ratio—the number of aged
@@ -33,6 +32,6 @@
 <p>
     However, household savings of just {required} a year—{perMonth} a month—over this
     period can erase the gap and allow for a retirement without lifestyle
-    changes driven by inadequate savings.
+    changes driven by inadequate savings
 </p>
 
