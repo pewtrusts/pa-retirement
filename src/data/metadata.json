@@ -4,19 +4,19 @@
     },
     "liability": {
         "short": "Taxpayer burden",
-        "display": "Cumulative additional taxpayer liability due to insufficient savings, 2015-30",
+        "display": "Cumulative additional taxpayer liability due to insufficient savings, <span style=\"white-space: nowrap;\">2015–30</span>",
         "format": "$,.0f",
         "isNumeric": true
     },
     "d_insuff": {
         "short": "Vulnerable household increase",
-        "display": "Increase in vulnerable older households, 2015-30",
+        "display": "Increase in vulnerable older households, <span style=\"white-space: nowrap;\">2015–30</span>",
         "format": ",.0%",
         "isNumeric": true
     },
     "d_ratio": {
         "short": "Dependency ratio increase",
-        "display": "Change in the ratio of older to working-age households, 2015-30",
+        "display": "Change in the ratio of older to working-age households, <span style=\"white-space: nowrap;\">2015–30</span>",
         "format": ",.0%",
         "isNumeric": true
     },
@@ -29,7 +29,7 @@
     },
     "required": {
         "short": "Additional savings required",
-        "display": "Additional household savings required for adequate savings in retirement, 2015-30",
+        "display": "Additional household savings required for adequate savings in retirement, <span style=\"white-space: nowrap;\">2015–30</span>",
         "format": "$,.0f",
         "isNumeric": true
     }

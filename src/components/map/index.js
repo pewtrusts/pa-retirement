@@ -176,5 +176,5 @@ function updateLabels(d,i,array){
         .classed('on-light', d => scale(d[selectedField]) < 0.25 || ['Philadelphia','Delaware'].includes(d.county));
 }
 function updateHeader(){
-    sectionHeadText.textContent = metadata[selectedField].display;
+    sectionHeadText.innerHTML = metadata[selectedField].display;
 }

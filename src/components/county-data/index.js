@@ -110,7 +110,7 @@ function initTitle(component,field){
         let entering = title.enter()
             .append('div')
             .attr('class', `js-title ${s.title}`)
-            .text(d => metadata[d].display);
+            .html(d => metadata[d].display);
     }
 }
 function updateComponent({d,i,arr,county}){
