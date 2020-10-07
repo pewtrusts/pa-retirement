@@ -1,10 +1,8 @@
-/* eslint no-unused-vars: warn */
-/* eslint no-undef: warn */
-/* global BUILDTYPE */
+/*eslint no-unused-vars: ["error", { "varsIgnorePattern": "StringHelpers" }]*/
+/* global BUILDTYPE module */
 import d3 from '@Project/d3-importer.js';
 import StringHelpers from '@Submodule/UTILS';
 import metadata from '@Project/data/metadata.json';
-import slugger from 'slugger';
 import initColumnCharts from '@Project/components/column-chart';
 import { initChart } from '@Project/components/column-chart';
 import { updateChart } from '@Project/components/column-chart';
@@ -107,13 +105,13 @@ function initTitle(component,field){
         .data([field]);
 
     {
-        let entering = title.enter()
+        title.enter()
             .append('div')
             .attr('class', `js-title ${s.title}`)
             .html(d => metadata[d].display);
     }
 }
-function updateComponent({d,i,arr,county}){
+function updateComponent({d,county}){
     var component = d3.select(this);
     /* chart */
     component.call(updateChart, {field: d, county})
@@ -132,7 +130,7 @@ function selectionHandler(){
     });
 }
 function initSelector(data){
-    var dropdown = new UISvelte.dropdown({
+    new UISvelte.dropdown({
         target: document.querySelector('#county-data-selector'),
         props: {
             label: 'Please select a county:',

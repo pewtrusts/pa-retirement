@@ -1,3 +1,4 @@
+/* global require process __dirname  module*/
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -34,7 +35,7 @@ const copyWebpack =
         from: 'assets/Pew/css/',
         context: 'src',
         to: 'assets/Pew/css/',
-        transform(content, path) {
+        transform(content) {
             if (process.env.NODE_ENV === 'preview') {
                 // this modifies the content of the files being copied; here making sure url('/...') is changed so that it will
                 // work on gitHub pages where oublic path is /{repoName}/
@@ -244,7 +245,7 @@ if ( isDev ){
 if (!isDev) {
     plugins.push(new CleanWebpackPlugin(), prerender);
 }
-module.exports = env => {
+module.exports = () => {
     return {
         devServer: {
             hot: isDev

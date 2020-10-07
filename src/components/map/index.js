@@ -1,5 +1,4 @@
-/* eslint no-unused-vars: warn */
-/* eslint no-undef: warn */
+/* global module */
 import d3 from '@Project/d3-importer.js';
 import { GTMPush } from '@Submodule/UTILS';
 import metadata from '@Project/data/metadata.json';
@@ -24,7 +23,7 @@ const sectionHead = document.querySelector('#pa-map-container h2');
 const sectionHeadText = document.querySelector('#pa-map-container h2 span');
 const tip = d3.tip()
     .attr('class', `${s['d3-tip']} ${s.n}`)
-    .offset(function(d,i,arr) {
+    .offset(function(d) {
         var labelR = container.querySelector(`div[data-key="${d.county}"]`).getBoundingClientRect();
           return [labelR.y - this.getBoundingClientRect().y - 12, 0]
         })
