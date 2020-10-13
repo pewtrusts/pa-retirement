@@ -32,6 +32,6 @@
 <p>
     However, household savings of just {required} a year—{perMonth} a month—over this
     period can erase the gap and allow for a retirement without lifestyle
-    changes driven by inadequate savings
+    changes driven by inadequate savings.
 </p>
 
