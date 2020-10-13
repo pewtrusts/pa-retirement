@@ -13,7 +13,14 @@ import './css/styles.scss';
 
 const publicPath = window.IS_PRERENDERING ? '' : PUBLICPATH;
 const container = document.querySelector('#render-here');
-
+function referenceHandler(){
+    if ( window.requestIdleCallback ){
+        requestIdleCallback(() => window.scrollBy(0,-100), {timeout: 100});
+    } else {
+        setTimeout(() => window.scrollBy(0, -100));
+    }
+    
+}
 function init(results){
     initMap({data: results.data});
     initBarCharts({data: results.data});
@@ -23,6 +30,9 @@ function init(results){
         offset: [0,0],
         trigger: 'mouseenter focus',
         allowHTML: true
+    });
+    document.querySelectorAll('a[href^="#_ftn"]').forEach(link => {
+        link.addEventListener('click', referenceHandler);
     });
     if ( window.IS_PRERENDERING ){
         document.dispatchEvent(new Event('custom-render-trigger'));
