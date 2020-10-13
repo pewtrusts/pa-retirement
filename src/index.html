@@ -4,11 +4,11 @@
     <link class="emitted-css" href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
     <% } %>
     <section id="pa-map-container">
-        <p id="pa-field-selector">Select a field:</p>
+        <p id="pa-field-selector">Select which measure to visualize on the map:</p>
         <div class="pa-button-container js-pa-button-container">
-            <div><button class="active" value="liability">Taxpayer burden</button></div>
-            <div><button value="d_ratio">Dependency ratio increase</button></div>
-            <div><button value="required">Additional savings required</button></div>
+            <div><label class="active"><input checked type="radio" name="map-field" value="liability" /> Taxpayer burden</label></div>
+            <div><label><input type="radio" name="map-field" value="d_ratio" /> Dependency ratio increase</label></div>
+            <div><label><input type="radio" name="map-field" value="required" /> Additional savings required</label></div>
         </div>
         <h2 id="mapheader"><span></span></h2>
     </section>

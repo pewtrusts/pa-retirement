@@ -24,12 +24,8 @@
 :global(.g-pstyle0){
     pointer-events: none;
 }
-:global(.pa-button-container button) {
-    appearance: none;
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
+:global(.pa-button-container label) {
+    cursor: pointer;
     color: $dark_gray;
     &:hover, &:focus, &:global(.active) {
         font-weight: bold;
@@ -38,11 +34,18 @@
         outline: 1px dotted #000;
     }
 }
+:global(.pa-button-container input) {
+    display: inline;
+    @media screen and (min-width: 436px){
+        display: none;
+    }
+}
 :global(.pa-button-container div) {
     //display: inline-block;
     padding: 0 0.8em;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 250px;
     @media screen and (max-width: 435px) {
         width: 100%;

@@ -12,7 +12,7 @@ if ( module.hot ){
 }
 
 const fields = ['liability', 'd_ratio', 'required'];
-var  selectedField = fields[0];
+var selectedField = fields[0];
 const container = document.querySelector('#pa-map-container');
 const scale = d3.scaleLinear().range([0,1]);
 //var colors = ['#fff', '#229DC6','#153164'];
@@ -35,10 +35,10 @@ const tip = d3.tip()
 
 export default function initMap({data}){
 
-    var buttons = document.querySelectorAll('.js-pa-button-container button');
-    var activeButton = buttons[0];
+    var inputs = document.querySelectorAll('.js-pa-button-container input');
+    var activeInput = inputs[0];
 
-    function clickHandler(){
+    function changeHandler(){
         if ( this.value == selectedField ){
             return;
         }
@@ -46,15 +46,15 @@ export default function initMap({data}){
         counties.each(update);
         labels.each(updateLabels);
         updateLegend({labels: legendLabels});
-        activeButton.classList.remove('active');
-        this.classList.add('active');
-        activeButton = this;
+        activeInput.parentNode.classList.remove('active');
+        this.parentNode.classList.add('active');
+        activeInput = this;
         updateHeader();
         GTMPush('PA-Retirement|MapField|' + this.value);
     }
 
-    buttons.forEach(btn => {
-        btn.addEventListener('click', clickHandler);
+    inputs.forEach(input => {
+        input.addEventListener('change', changeHandler);
     });
 
     // mutates extents
