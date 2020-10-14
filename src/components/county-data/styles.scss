@@ -26,6 +26,9 @@
         width: 100%;
         max-width: 140px;
     }
+    @media print {
+        width: 200px;
+    }
 }
 .callout {
     text-align: center;

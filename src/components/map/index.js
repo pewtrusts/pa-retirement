@@ -118,12 +118,12 @@ function returnArray(j){
     return arr;
 }
 function initLegend(){
-    var legend = d3.select(sectionHead).selectAll(`div.${s.legend}`)
+    var legend = d3.select(sectionHead).selectAll(`svg.${s.legend}`)
         .data([100]);
 
     {
         let entering = legend.enter()
-            .append('div')
+            .append('svg')
             .attr('class', s.legend);
 
         legend = legend.merge(entering);
@@ -134,20 +134,26 @@ function initLegend(){
 
     {
         let entering = legendDivs.enter()
-            .append('div')
+            .append('rect')
             .attr('class',s.legendDiv)
-            .style('background-color', (d,i,array) => d3.piecewise(d3.interpolateRgb, colors)( i / array.length));
+            .attr('fill', (d,i,array) => d3.piecewise(d3.interpolateRgb, colors)( i / array.length))
+            .attr('stroke', (d,i,array) => d3.piecewise(d3.interpolateRgb, colors)( i / array.length))
+            .attr('height', 16)
+            .attr('width', 175 / 100)
+            .attr('x',(d,i) => i * 175 / 100);
+            
 
         legendDivs = legendDivs.merge(entering);
 
     }
 
-    var legendValues = legend.selectAll('label')
+    var legendValues = legend.selectAll('text')
         .data(extents[fields[0]]);
 
     {
         let entering = legendValues.enter()
-            .append('label');
+            .append('text')
+            .attr('y', '-0.5em');
 
         legendValues = legendValues.merge(entering);
     }

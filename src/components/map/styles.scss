@@ -1,6 +1,13 @@
 @import '@Project/css/variables.scss';
 @import '@Project/css/d3-tip.scss';
-
+:global(.third-party-embed){
+    @media print {
+        display: block;
+        :global(#county-data) {
+            page-break-inside: avoid;
+        }
+    }
+}
 :global(.pa-button-container) {
     margin-bottom: 25px;
     display: flex;
@@ -98,17 +105,13 @@
     display: flex;
     justify-content: stretch;
     margin: 40px 0 0 21px;
-    label {
-        position: absolute;
-        bottom: 120%;
-        left: 0;
+    overflow: visible !important;
+    text {
         font-size: 0.85rem;
         font-weight: 600;
-        transform: translateX(-50%);
+        text-anchor: middle;
         &.max {
-            left: auto;
-            right: 0;
-            transform: translateX(50%);
+            transform: translateX(175px);
         }
     }
 }
