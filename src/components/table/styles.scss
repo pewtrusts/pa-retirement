@@ -166,6 +166,11 @@
             z-index: 1;
             border-bottom: 1px solid $lightest_gray;
             //transform:translateY(-100%);
+            @media print {
+                background-color: #fff;
+                color: $dark_gray;
+                font-weight: bold;
+            }
             @media screen and (max-width: 910px){
                 top: 98px;
             }
@@ -254,6 +259,11 @@
         td {
             background-color: $dark_gray;
             color: #fff;
+            @media print {
+                background-color:  #fff;
+                color:$dark_gray;
+                font-weight: bold;
+            }
         }
     }
 }
