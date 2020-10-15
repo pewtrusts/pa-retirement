@@ -19,7 +19,7 @@ const scale = d3.scaleLinear().range([0,1]);
 var colors = ['#ebf4ff', '#296EC3','#153164'];
 var legendLabels;
 const extents = {};
-const sectionHead = document.querySelector('#pa-map-container h2');
+const legendContainer = document.querySelector('#legend-container');
 const sectionHeadText = document.querySelector('#pa-map-container h2 span');
 const tip = d3.tip()
     .attr('class', `${s['d3-tip']} ${s.n}`)
@@ -118,7 +118,7 @@ function returnArray(j){
     return arr;
 }
 function initLegend(){
-    var legend = d3.select(sectionHead).selectAll(`svg.${s.legend}`)
+    var legend = d3.select(legendContainer).selectAll(`svg.${s.legend}`)
         .data([100]);
 
     {
@@ -163,7 +163,7 @@ function initLegend(){
 function updateLegend({labels}){
     labels.data(extents[selectedField])
         .text(d => d3.format(metadata[selectedField].format)(d))
-        .classed(s.max, (d,i) => i == 1);
+        .attr('transform', (d,i) => i == 1 ? 'translate(175 0)' : null); // doing by attribyt cuz ie11 won't support it via CSS
 }
 function update(d,i,array){
     var county = d3.select(array[i]);
