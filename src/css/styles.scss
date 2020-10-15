@@ -29,24 +29,21 @@
 :global(.chart-legend){
     div {
         display: inline-block;
-        padding: 0 30px 0 20px;
+        padding: 0 30px 0 0;
         position: relative;
         line-height: 1;
-        &::before {
-            content: '\25a0';
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            color: $gray;
-            font-size: 1.8em;
-            line-height: 0.3;
-            margin-right: 0.2em;
+        svg {
+            position: relative;
+            top: 1px;
+            margin-right: 4px;
+            rect {
+                fill: $gray;
+            }
         }
     }
 }
-:global(.chart-legend div.legend-item--selected)::before {
-    color: $pew_blue;
+:global(.chart-legend div.legend-item--selected) svg rect {
+    fill: $pew_blue;
 }
 :global(.line-key-wrapper){
     position: relative;
