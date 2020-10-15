@@ -49,7 +49,14 @@
     color: $pew_blue;
 }
 :global(.line-key-wrapper){
+    position: relative;
     margin-bottom: 0.5em;
+    
+    line {
+        stroke-width: 2px;
+        stroke: $dark_gray;
+        stroke-dasharray: 2px 2px;
+    }
 }
 :global(.line-key){
     display: inline-block;
