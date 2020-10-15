@@ -8,6 +8,11 @@
         }
     }
 }
+:global(#pa-map-container) {
+    @media print {
+        page-break-before: always;
+    }
+}
 :global(.pa-button-container) {
     margin-bottom: 25px;
     display: flex;
