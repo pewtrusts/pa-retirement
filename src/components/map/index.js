@@ -16,7 +16,7 @@ var selectedField = fields[0];
 const container = document.querySelector('#pa-map-container');
 const scale = d3.scaleLinear().range([0,1]);
 //var colors = ['#fff', '#229DC6','#153164'];
-var colors = ['#ebf4ff', '#296EC3','#153164'];
+var colors = ['#b0dfdd', '#2c9c99','#004344'];
 var legendLabels;
 const extents = {};
 const legendContainer = document.querySelector('#legend-container');
