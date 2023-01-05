@@ -19,7 +19,7 @@ const margin = {
     top: 6.25,
     right: 0,
     bottom: 6.25,
-    left: 0
+    left: 5
 };
 const viewBoxHeight = 25;
 const height = viewBoxHeight - margin.top - margin.bottom;
@@ -61,8 +61,8 @@ export default function _createBarChart(d){
 
         entering.append('line')
             .attr('class', s.axisLine)
-            .attr('x1',0)
-            .attr('x2',0)
+            .attr('x1',5)
+            .attr('x2',5)
             .attr('y1',margin.top / 2)
             .attr('y2', viewBoxHeight - margin.bottom / 2)
             .attr('vector-effect','non-scaling-stroke');
@@ -81,10 +81,10 @@ export default function _createBarChart(d){
     {
         let entering = rect.enter()
             .append('rect')
-            .attr('x',0)
+            .attr('x', d.value > 0 ? 0 : yScale(d.value))
             .attr('y',0)
             .attr('height', height)
-            .attr('width', yScale(d.value));
+            .attr('width', yScale(Math.abs(d.value)));
 
         rect = rect.merge(entering)
         rect.exit().remove();

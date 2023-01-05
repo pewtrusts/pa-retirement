@@ -10,11 +10,11 @@ if ( module.hot ){
     module.hot.accept('./styles.scss');
 }
 
-const viewBoxHeight = 77;
+const viewBoxHeight = 85;
 const margin = {
     top: 13,
     right: 1,
-    bottom: 0,
+    bottom: 8,
     left: 1
 };
 const height = viewBoxHeight - margin.top - margin.bottom;
@@ -59,6 +59,21 @@ export function initChart(component){
     }
     
     var _svg = returnSVG();
+    var axis = _svg.selectAll('line.axis')
+    .data([1]);
+
+    {
+        let entering = axis.enter()
+            .append('line')
+            .attr('class', `axis ${s.axis}`)
+            .attr('x1', (1/14) * width)
+            .attr('x2', width - (1/14) * width)
+            .attr('y1', height )
+            .attr('y2', height )
+            .attr('transform', 'translate(0 0)');
+
+        axis = axis.merge(entering);
+    }
     var rects = _svg.selectAll('rect.column')
         .data(d => d);
 
@@ -94,21 +109,6 @@ export function initChart(component){
             labels == labels.merge(entering);
         }
 
-    var axis = _svg.selectAll('line.axis')
-        .data([1]);
-
-        {
-            let entering = axis.enter()
-                .append('line')
-                .attr('class', `axis ${s.axis}`)
-                .attr('x1', (1/14) * width)
-                .attr('x2', width - (1/14) * width)
-                .attr('y1', height )
-                .attr('y2', height )
-                .attr('transform', 'translate(0 0)');
-
-            axis = axis.merge(entering);
-        }
 
    /* var axisLabel = _svg.selectAll('text.axis-label')
         .data([1]);
@@ -139,13 +139,25 @@ export function updateChart(component, {field, county = 'Adams'}){
 
     rects
         //.transition().duration(500)
-        .attr('y', d => yScale(d.value))
-        .attr('height', d => height - yScale(d.value));
+        .attr('y', d => {
+            console.log(d.value, 'rect')
+            console.log(chartData)
+
+            if (d.value > 0) {
+
+                return yScale(d.value)
+            } else {
+                return yScale(d.value) - (height - yScale(Math.abs(d.value)))
+            }
+        })
+        .attr('height', d => height - yScale(Math.abs(d.value)));
+
+    
 
     var labels = component.selectAll('text')
         .data(chartData)
         .text(d => d3.format(metadata[field].format)(d.value))
         //.transition().duration(500)
-        .attr('transform', d => `translate(0 ${height - (height - yScale(d.value))})`);
+        .attr('transform', d => `translate(0 ${d.value > 0 ? height - (height - yScale(d.value)) : height})`);
 }
 

@@ -2,7 +2,7 @@
 /* eslint no-undef: warn */
 /* global PUBLICPATH */
 import Papa from 'papaparse';
-import dataFile from './data/county-data.csv'; // via file-loader ie path to asset
+import dataFile from './data/county-data20202035.csv'; // via file-loader ie path to asset
 import { initBarCharts } from './components/bar-chart/';
 import initTable from './components/table/';
 import initMap from './components/map/';

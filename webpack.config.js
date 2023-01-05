@@ -89,8 +89,8 @@ const devToolPlugins = [new webpack.SourceMapDevToolPlugin({
 })];
 const plugins = [
     new HtmlWebpackPlugin({
-        title: 'Retirement Savings Gaps May Increase Burden on Pennsylvania Taxpayers',
-        subtitle: 'Data shows saving as little as $25 a week can ensure retirement security',
+        title: 'Pennsylvania’s looming $17.8 billion fiscal shortfall',
+        subtitle: 'An interactive look at how Pennsylvania’s retirement savings crisis is straining the Commonwealth’s safety net',
         template: isProd ? './src/index.html' : './src/index-dev.html',
         inject: false,
     }),

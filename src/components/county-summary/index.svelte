@@ -22,11 +22,8 @@
     
 </style>
 <p>
-    In 2030, on average, {county} County’s vulnerable older households can expect an annual income
-    shortfall of {shortfall} due to insufficient savings. Without new saving, county taxpayers
-    will need to pay a cumulative {liability} from 2015 to 2030 to
-    maintain existing social services to older residents. The burden is
-    exacerbated by the fact that the aged dependency ratio—the number of aged
+    In 2035, on average, {county} County’s vulnerable older households can expect an annual income
+    shortfall of {shortfall} due to insufficient savings. To maintain existing social services to older residents, on average, county households will be on the hook for a cumulative {liability} in additional taxes from 2020 to 2035.  The burden is exacerbated by the fact that the aged dependency ratio—the number of aged
     65 and older households to households aged 20-64—will rise by {d_ratio}.
 </p>
 <p>
