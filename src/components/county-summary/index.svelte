@@ -23,12 +23,9 @@
 </style>
 <p>
     In 2035, on average, {county} County’s vulnerable older households can expect an annual income
-    shortfall of {shortfall} due to insufficient savings. To maintain existing social services to older residents, on average, county households will be on the hook for a cumulative {liability} in additional taxes from 2020 to 2035.  The burden is exacerbated by the fact that the aged dependency ratio—the number of aged
-    65 and older households to households aged 20-64—will rise by {d_ratio}.
+    shortfall of {shortfall} due to insufficient savings. To maintain existing social services to older residents, county households on average will be on the hook for a cumulative {liability} in additional taxes from 2020 to 2035. The burden is exacerbated by the fact that the age dependency ratio—the number of households age 65 and older divided by the number of those age 20-64—will rise by {d_ratio}.
 </p>
 <p>
-    However, household savings of just {required} a year—{perMonth} a month—over this
-    period can erase the gap and allow for a retirement without lifestyle
-    changes driven by inadequate savings.
+    However, household savings of just {required} a year—{perMonth} a month—over this period can erase the gap and allow for a retirement without lifestyle changes driven by inadequate savings.
 </p>
 
