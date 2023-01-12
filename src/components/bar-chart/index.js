@@ -81,7 +81,6 @@ export default function _createBarChart(d){
     {
         let entering = rect.enter()
             .append('rect')
-            .attr('fill', d.value > 0 ? "#296EC3" : "#f47d4b")
             .attr('x', d.value > 0 ? 0 : yScale(d.value))
             .attr('y',0)
             .attr('height', height)
