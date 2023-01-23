@@ -4,7 +4,7 @@
     },
     "liability": {
         "short": "Taxpayer burden",
-        "display": "Cumulative additional taxpayer liability due to insufficient savings, <span style=\"white-space: nowrap;\">2020 to 2035</span>",
+        "display": "Cumulative additional taxpayer liability due to insufficient savings per household, <span style=\"white-space: nowrap;\">2020 to 2035</span>",
         "format": "$,.0f",
         "isNumeric": true
     },

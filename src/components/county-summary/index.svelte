@@ -26,6 +26,6 @@
     shortfall of {shortfall} due to insufficient savings. To maintain existing social services to older residents, county households on average will be on the hook for a cumulative {liability} in additional taxes from 2020 to 2035. The burden is exacerbated by the fact that the age dependency ratio—the number of households age 65 and older divided by the number of those age 20-64—will rise by {d_ratio}.
 </p>
 <p>
-    However, household savings of just {required} a year—{perMonth} a month—over this period can erase the gap and allow for a retirement without lifestyle changes driven by inadequate savings.
+    However, additional household savings of just {required} a year—{perMonth} a month—over this period can erase the gap and allow for a retirement without lifestyle changes driven by inadequate savings.
 </p>
 
