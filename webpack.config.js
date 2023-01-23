@@ -15,7 +15,7 @@ const pretty = require('pretty');
 const {sass} = require('svelte-preprocess-sass');
 
 const repoName = 'pa-retirement';
-const publicPath = isProd ? '/~/media/data-visualizations/interactives/2020/pa-retirement/' : '';
+const publicPath = isProd ? '/~/media/data-visualizations/interactives/2023/pa-retirement/' : '';
 
 const copyWebpack =
     new CopyWebpackPlugin([{

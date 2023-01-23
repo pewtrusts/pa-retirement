@@ -94,7 +94,8 @@ function updateCallout(component, {data,field,county = 'Adams'}){
     component.select('div.js-callout span')
         .datum(calloutValue)
         .html(d => field !== 'required' ? 
-            field == 'd_insuff' || field == 'd_ratio' ? `${d3.format(metadata[field].format)(d)} ${d < 0 ? 'decrease' : 'increase'}` :
+            field == 'd_insuff' || field == 'd_ratio' ? d < -0.01 ? d3.format(metadata[field].format)(d) + ' decrease' : d > 0.01 ? d3.format(metadata[field].format)(d) + ' increase' : 'No change'
+            :
             d3.format(metadata[field].format)(d) :
             `${d3.format(metadata[field].format)(d)} a year<br />` +
             `or ${d3.format(metadata[field].format)(d / 12)} a month`

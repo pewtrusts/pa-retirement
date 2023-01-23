@@ -140,8 +140,6 @@ export function updateChart(component, {field, county = 'Adams'}){
     rects
         //.transition().duration(500)
         .attr('y', d => {
-            console.log(d.value, 'rect')
-            console.log(chartData)
 
             if (d.value > 0) {
 

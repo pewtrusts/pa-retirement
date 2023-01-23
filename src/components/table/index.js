@@ -15,6 +15,10 @@ function format({property, value}){
     return metadata[property].format ? d3.format(metadata[property].format)(value) : value;
 }
 function tableFormat({property, value}){
+    //  alignment fix
+    if (format({property,value}).replace(/[$%]/,'').toString().length == 1 ){
+        return `&nbsp;&nbsp;${format({property,value}).replace(/[$%]/,'')}`
+    }
     return format({property,value}).replace(/[$%]/,'');
 }
 function display(value){
